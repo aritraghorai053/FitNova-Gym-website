@@ -1,7 +1,4 @@
-/* =============================================
-   FITNOVA — ADMIN PORTAL CSS
-   Theme: Black + Orange (#ff6600) + Cyan
-   ============================================= */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap');
 
@@ -40,14 +37,9 @@ html, body {
     overflow: hidden;
 }
 
-/* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #111; }
 ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 10px; }
-
-/* =============================================
-   SIDEBAR
-   ============================================= */
 
 .sidebar {
     position: fixed;
@@ -100,7 +92,6 @@ html, body {
     margin-top: 2px;
 }
 
-/* Nav */
 .sidebar-nav {
     flex: 1;
     padding: 16px 12px;
@@ -176,7 +167,6 @@ html, body {
     50% { box-shadow: 0 0 0 5px transparent; }
 }
 
-/* Sidebar Footer */
 .sidebar-footer {
     padding: 16px;
     border-top: 1px solid var(--border-orange);
@@ -261,7 +251,6 @@ html, body {
     color: #ff4444 !important;
 }
 
-/* Mobile toggle */
 .sidebar-toggle {
     display: none;
     position: fixed;
@@ -278,10 +267,6 @@ html, body {
     cursor: pointer;
 }
 
-/* =============================================
-   MAIN CONTENT
-   ============================================= */
-
 .main-content {
     margin-left: var(--sidebar-w);
     height: 100vh;
@@ -291,7 +276,6 @@ html, body {
     background: var(--bg);
 }
 
-/* ── TOPBAR ── */
 .topbar {
     height: var(--topbar-h);
     background: var(--bg2);
@@ -305,7 +289,6 @@ html, body {
     z-index: 500;
     flex-shrink: 0;
 }
-
 
 .page-title {
     font-size: 22px;
@@ -399,10 +382,6 @@ html, body {
     box-shadow: 0 0 10px var(--orange-glow);
 }
 
-/* =============================================
-   SECTIONS
-   ============================================= */
-
 .portal-section {
     display: none;
     padding: 30px;
@@ -419,7 +398,6 @@ html, body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* ── SECTION HEADER BAR ── */
 .section-header-bar {
     display: flex;
     align-items: center;
@@ -434,10 +412,6 @@ html, body {
     font-weight: 800;
     color: white;
 }
-
-/* =============================================
-   DASHBOARD — STAT CARDS
-   ============================================= */
 
 .stats-grid {
     display: grid;
@@ -516,7 +490,6 @@ html, body {
     flex-shrink: 0;
 }
 
-/* ── DASHBOARD GRID ── */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -565,7 +538,6 @@ html, body {
     transform: none !important;
 }
 
-/* Recent items */
 .recent-item {
     display: flex;
     align-items: center;
@@ -620,7 +592,6 @@ html, body {
     text-overflow: ellipsis;
 }
 
-/* Quick Actions */
 .quick-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -656,10 +627,6 @@ html, body {
     transform: none !important;
     box-shadow: none !important;
 }
-
-/* =============================================
-   USERS TABLE
-   ============================================= */
 
 .filter-bar {
     display: flex;
@@ -702,7 +669,6 @@ html, body {
     color: white;
 }
 
-/* Table */
 .table-wrapper {
     background: var(--card);
     border: 1px solid var(--border);
@@ -763,7 +729,6 @@ html, body {
     font-size: 15px;
 }
 
-/* Status badges */
 .status-badge {
     display: inline-block;
     padding: 3px 12px;
@@ -803,7 +768,6 @@ html, body {
     white-space: nowrap;
 }
 
-/* Action buttons */
 .action-btns {
     display: flex;
     gap: 8px;
@@ -859,10 +823,6 @@ html, body {
     transform: none !important;
     box-shadow: none !important;
 }
-
-/* =============================================
-   MESSAGES
-   ============================================= */
 
 .msg-filters {
     display: flex;
@@ -1020,10 +980,6 @@ html, body {
     font-size: 15px;
 }
 
-/* =============================================
-   MEMBERSHIPS
-   ============================================= */
-
 .plans-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1101,10 +1057,6 @@ html, body {
     gap: 10px;
 }
 
-/* =============================================
-   TRAINERS ADMIN
-   ============================================= */
-
 .trainers-admin-grid {
     display: flex;
     flex-direction: column;
@@ -1172,10 +1124,6 @@ html, body {
     align-items: center;
 }
 
-/* =============================================
-   PROGRAMS ADMIN
-   ============================================= */
-
 .programs-admin-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1229,10 +1177,6 @@ html, body {
     margin-top: auto;
     flex-wrap: wrap;
 }
-
-/* =============================================
-   SETTINGS
-   ============================================= */
 
 .settings-grid {
     display: grid;
@@ -1334,7 +1278,6 @@ html, body {
     box-shadow: 0 0 0 2px var(--orange-dim);
 }
 
-/* Save button */
 .save-btn {
     background: linear-gradient(135deg, var(--orange), #ff4400) !important;
     border: none !important;
@@ -1356,7 +1299,6 @@ html, body {
     box-shadow: 0 6px 20px var(--orange-glow) !important;
 }
 
-/* Add button */
 .add-btn {
     background: linear-gradient(135deg, var(--orange), #ff4400) !important;
     border: none !important;
@@ -1377,7 +1319,6 @@ html, body {
     box-shadow: 0 6px 20px var(--orange-glow) !important;
 }
 
-/* Cancel / Delete */
 .cancel-btn {
     background: transparent !important;
     border: 1px solid var(--border) !important;
@@ -1418,7 +1359,6 @@ html, body {
     box-shadow: none !important;
 }
 
-/* Pricing form */
 .pricing-form { gap: 20px; }
 .pricing-row {
     display: grid;
@@ -1426,7 +1366,6 @@ html, body {
     gap: 16px;
 }
 
-/* ── TOGGLE SWITCHES ── */
 .toggle-field {
     display: flex;
     align-items: center;
@@ -1500,10 +1439,6 @@ html, body {
     transform: translateX(24px);
 }
 
-/* =============================================
-   ACCOUNT
-   ============================================= */
-
 .account-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -1549,10 +1484,6 @@ html, body {
     font-weight: 600;
     margin-top: 2px;
 }
-
-/* =============================================
-   MODALS
-   ============================================= */
 
 .modal-overlay {
     display: none;
@@ -1636,7 +1567,6 @@ html, body {
     border-top: 1px solid var(--border);
 }
 
-/* Message detail */
 .msg-detail {
     display: flex;
     flex-direction: column;
@@ -1669,10 +1599,6 @@ html, body {
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
 }
-
-/* =============================================
-   TOAST
-   ============================================= */
 
 .toast {
     position: fixed;
@@ -1711,10 +1637,6 @@ html, body {
     color: #ff4444;
     box-shadow: 0 0 20px rgba(255,68,68,0.2);
 }
-
-/* =============================================
-   RESPONSIVE
-   ============================================= */
 
 @media (max-width: 1024px) {
 

@@ -15,7 +15,6 @@ a{
     text-decoration: none;
 }
 
-
 nav {
     background: rgba(0, 0, 0, 0.95);
 
@@ -42,12 +41,10 @@ nav {
     align-items: center;
 }
 
-
 .logo {
     height: 50px;
     cursor: pointer;
 }
-
 
 .mid-section ul {
     display: flex;
@@ -55,14 +52,11 @@ nav {
     list-style: none;
 }
 
-
 .right-section ul {
     display: flex;
     gap: 12px;
     list-style: none;
 }
-
-
 
 button {
     width: 110px;
@@ -83,7 +77,6 @@ button {
     text-transform: capitalize;
 }
 
-
 .neon-btn:hover {
     background-color: cyan;
     color: black;
@@ -93,7 +86,6 @@ button {
         0 0 20px cyan,
         0 0 40px cyan;
 }
-
 
 .left-section {
     position: relative;
@@ -116,13 +108,9 @@ button {
     transition: 0.3s;
 }
 
-
-
 .left-section:hover .tooltip {
     opacity: 1;
 }
-
-
 
 @media (max-width: 992px){
 
@@ -144,8 +132,6 @@ button {
         font-size: 13px;
     }
 }
-
-
 
 @media (max-width: 768px){
 
@@ -183,8 +169,6 @@ button {
         display: none;
     }
 }
-
-
 
 @media (max-width: 480px){
 
@@ -282,8 +266,6 @@ button {
 
 }
 
-
-
 .workout-section{
     padding:100px 8%;
     background:#050505;
@@ -363,7 +345,6 @@ button {
     letter-spacing: 1px;
 }
 
-
 .plan-section{
     padding:100px 8%;
     background:#000;
@@ -409,11 +390,6 @@ button {
     color:white;
 }
 
-
-/* ===========================
-   RETURN HOME
-=========================== */
-
 .return-home{
     background:#050505;
     padding:40px 0;
@@ -449,11 +425,6 @@ button {
     0 0 20px #ff6600,
     0 0 40px #ff6600;
 }
-
-
-/* ===========================
-   FOOTER
-=========================== */
 
 footer{
 

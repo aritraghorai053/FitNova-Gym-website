@@ -9,16 +9,12 @@ body{
     background: black;
 }
 
-
-
 .register-section{
     width: 100%;
     min-height: 100vh;
 
     display: flex;
 }
-
-
 
 .left-side{
     width: 50%;
@@ -32,7 +28,6 @@ body{
     object-fit: cover;
 }
 
-
 .overlay{
     position: absolute;
     inset: 0;
@@ -42,7 +37,6 @@ body{
     rgba(0,0,0,0.7),
     rgba(0,0,0,0.3));
 }
-
 
 .logo-box{
     position: absolute;
@@ -68,8 +62,6 @@ body{
     letter-spacing: 2px;
 }
 
-
-
 .right-side{
     width: 50%;
 
@@ -79,8 +71,6 @@ body{
 
     background: #050505;
 }
-
-
 
 .register-container{
     width: 430px;
@@ -107,7 +97,6 @@ body{
     line-height: 1.7;
     margin-bottom: 35px;
 }
-
 
 .input-box{
     width: 100%;
@@ -141,7 +130,6 @@ body{
     color: #999;
 }
 
-
 .register-btn{
     width: 100%;
     height: 58px;
@@ -174,8 +162,6 @@ body{
     0 0 40px rgba(255,102,0,0.3);
 }
 
-
-
 .bottom-links{
     margin-top: 25px;
 
@@ -194,7 +180,6 @@ body{
 .bottom-links a:hover{
     color: #ff6600;
 }
-
 
 @media(max-width: 992px){
 

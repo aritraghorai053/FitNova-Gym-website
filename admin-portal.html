@@ -12,8 +12,7 @@
 
 <body>
 
-    <!-- ===== SIDEBAR ===== -->
-    <aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar">
 
         <div class="sidebar-header">
             <img src="Thumbnails/logo.png" alt="Logo" class="sidebar-logo">
@@ -89,14 +88,11 @@
 
     </aside>
 
-    <!-- ===== MOBILE TOGGLE ===== -->
-    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">&#9776;</button>
+<button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">&#9776;</button>
 
-    <!-- ===== MAIN CONTENT ===== -->
-    <main class="main-content" id="mainContent">
+<main class="main-content" id="mainContent">
 
-        <!-- TOP BAR -->
-        <div class="topbar">
+<div class="topbar">
             <div class="topbar-left">
                 <h1 class="page-title" id="pageTitle">Dashboard</h1>
                 <span class="breadcrumb">Admin / <span id="breadcrumbCurrent">Dashboard</span></span>
@@ -114,8 +110,7 @@
             </div>
         </div>
 
-        <!-- ======== SECTION: DASHBOARD ======== -->
-        <section class="portal-section active" id="section-dashboard">
+<section class="portal-section active" id="section-dashboard">
 
             <div class="stats-grid">
 
@@ -157,8 +152,7 @@
 
             </div>
 
-            <!-- Recent Activity + Quick Actions -->
-            <div class="dashboard-grid">
+<div class="dashboard-grid">
 
                 <div class="dash-card">
                     <div class="card-header">
@@ -166,7 +160,7 @@
                         <button class="card-btn" onclick="showSection('users', document.querySelector('[data-section=users]'))">View All</button>
                     </div>
                     <div class="recent-list" id="recentList">
-                        <!-- Populated by JS -->
+                        
                     </div>
                 </div>
 
@@ -176,7 +170,7 @@
                         <button class="card-btn" onclick="showSection('messages', document.querySelector('[data-section=messages]'))">View All</button>
                     </div>
                     <div class="recent-list" id="unreadList">
-                        <!-- Populated by JS -->
+                        
                     </div>
                 </div>
 
@@ -210,8 +204,7 @@
 
         </section>
 
-        <!-- ======== SECTION: USERS ======== -->
-        <section class="portal-section" id="section-users">
+<section class="portal-section" id="section-users">
 
             <div class="section-header-bar">
                 <h2>User Management</h2>
@@ -243,15 +236,14 @@
                         </tr>
                     </thead>
                     <tbody id="usersTableBody">
-                        <!-- Populated by JS -->
+                        
                     </tbody>
                 </table>
             </div>
 
         </section>
 
-        <!-- ======== SECTION: MESSAGES ======== -->
-        <section class="portal-section" id="section-messages">
+<section class="portal-section" id="section-messages">
 
             <div class="section-header-bar">
                 <h2>Messages</h2>
@@ -263,13 +255,12 @@
             </div>
 
             <div class="messages-container" id="messagesContainer">
-                <!-- Populated by JS -->
+                
             </div>
 
         </section>
 
-        <!-- ======== SECTION: MEMBERSHIPS ======== -->
-        <section class="portal-section" id="section-members">
+<section class="portal-section" id="section-members">
 
             <div class="section-header-bar">
                 <h2>Membership Plans</h2>
@@ -277,13 +268,12 @@
             </div>
 
             <div class="plans-grid" id="plansGrid">
-                <!-- Populated by JS -->
+                
             </div>
 
         </section>
 
-        <!-- ======== SECTION: TRAINERS ======== -->
-        <section class="portal-section" id="section-trainers">
+<section class="portal-section" id="section-trainers">
 
             <div class="section-header-bar">
                 <h2>Trainers</h2>
@@ -291,26 +281,24 @@
             </div>
 
             <div class="trainers-admin-grid" id="trainersAdminGrid">
-                <!-- Populated by JS -->
+                
             </div>
 
         </section>
 
-        <!-- ======== SECTION: PROGRAMS ======== -->
-        <section class="portal-section" id="section-programs">
+<section class="portal-section" id="section-programs">
 
             <div class="section-header-bar">
                 <h2>Programs</h2>
             </div>
 
             <div class="programs-admin-grid" id="programsAdminGrid">
-                <!-- Populated by JS -->
+                
             </div>
 
         </section>
 
-        <!-- ======== SECTION: SITE SETTINGS ======== -->
-        <section class="portal-section" id="section-site-settings">
+<section class="portal-section" id="section-site-settings">
 
             <div class="section-header-bar">
                 <h2>Site Settings</h2>
@@ -318,8 +306,7 @@
 
             <div class="settings-grid">
 
-                <!-- General Info -->
-                <div class="settings-card">
+<div class="settings-card">
                     <div class="settings-card-header">
                         <span class="settings-icon">&#127968;</span>
                         <h3>General Information</h3>
@@ -355,8 +342,7 @@
                     </div>
                 </div>
 
-                <!-- Social Media -->
-                <div class="settings-card">
+<div class="settings-card">
                     <div class="settings-card-header">
                         <span class="settings-icon">&#127760;</span>
                         <h3>Social Media Links</h3>
@@ -387,8 +373,7 @@
                     </div>
                 </div>
 
-                <!-- Hero Section -->
-                <div class="settings-card">
+<div class="settings-card">
                     <div class="settings-card-header">
                         <span class="settings-icon">&#127968;</span>
                         <h3>Homepage Content</h3>
@@ -414,8 +399,7 @@
                     </div>
                 </div>
 
-                <!-- Toggles -->
-                <div class="settings-card">
+<div class="settings-card">
                     <div class="settings-card-header">
                         <span class="settings-icon">&#9881;</span>
                         <h3>Feature Toggles</h3>
@@ -481,8 +465,7 @@
                     </div>
                 </div>
 
-                <!-- Pricing -->
-                <div class="settings-card full-width">
+<div class="settings-card full-width">
                     <div class="settings-card-header">
                         <span class="settings-icon">&#128176;</span>
                         <h3>Membership Pricing</h3>
@@ -512,8 +495,7 @@
 
         </section>
 
-        <!-- ======== SECTION: ACCOUNT ======== -->
-        <section class="portal-section" id="section-account">
+<section class="portal-section" id="section-account">
 
             <div class="section-header-bar">
                 <h2>My Account</h2>
@@ -586,10 +568,7 @@
 
     </main>
 
-    <!-- ===== MODALS ===== -->
-
-    <!-- Add User Modal -->
-    <div class="modal-overlay" id="addUserModal">
+<div class="modal-overlay" id="addUserModal">
         <div class="modal">
             <div class="modal-header">
                 <h3>Add New User</h3>
@@ -624,8 +603,7 @@
         </div>
     </div>
 
-    <!-- Message View Modal -->
-    <div class="modal-overlay" id="messageModal">
+<div class="modal-overlay" id="messageModal">
         <div class="modal">
             <div class="modal-header">
                 <h3>Message Details</h3>
@@ -640,8 +618,7 @@
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
+<div class="toast" id="toast"></div>
 
     <script>
     /* ================================================

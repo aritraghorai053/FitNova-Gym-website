@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitNova — Admin Login</title>
+    <meta name="description" content="FitNova Admin Login Portal — Secure access for administrators.">
+
+    <link rel="stylesheet" href="CSS/admin-login.css">
+</head>
+
+<body>
+
+    <section class="admin-login-section">
+
+<div class="al-left">
+
+            <div class="al-overlay"></div>
+
+            <div class="al-logo-box">
+                <img src="Thumbnails/logo.png" alt="FitNova Logo">
+                <h1>FITNOVA</h1>
+            </div>
+
+            <div class="al-left-text">
+                <h2>ADMIN<br><span>PORTAL</span></h2>
+                <p>Secure access for authorized administrators only.</p>
+            </div>
+
+        </div>
+
+<div class="al-right">
+
+            <div class="al-form-container">
+
+<div class="admin-badge">
+                    <span>⚙</span> ADMIN ACCESS
+                </div>
+
+                <h1>WELCOME<br><span>BACK</span></h1>
+
+                <p class="al-subtitle">Log in to the FitNova admin dashboard to manage members, programs, and more.</p>
+
+                <form id="adminLoginForm">
+
+                    <div class="al-input-box">
+                        <label for="adminUser">Username</label>
+                        <input type="text" id="adminUser" placeholder="Enter admin username" required autocomplete="username">
+                    </div>
+
+                    <div class="al-input-box">
+                        <label for="adminPass">Password</label>
+                        <input type="password" id="adminPass" placeholder="Enter admin password" required autocomplete="current-password">
+                        <button type="button" class="toggle-pass" id="togglePass" aria-label="Toggle password visibility">👁</button>
+                    </div>
+
+                    <div id="errorMsg" class="error-msg" style="display:none;">
+                        ❌ Invalid admin credentials. Please try again.
+                    </div>
+
+                    <button type="submit" class="al-submit-btn" id="submitBtn">
+                        <span id="btnText">⚙ LOGIN TO ADMIN</span>
+                        <span id="btnLoader" style="display:none;">⏳ Verifying...</span>
+                    </button>
+
+                </form>
+
+                <div class="al-bottom-links">
+                    <a href="index.html">← Back to Website</a>
+                    <a href="login.html">Member Login</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script>
+
+        const ADMIN_USERNAME = "Aritra-Ghorai";
+        const ADMIN_PASSWORD = "aritra02@";
+
+        const form      = document.getElementById("adminLoginForm");
+        const errorMsg  = document.getElementById("errorMsg");
+        const btnText   = document.getElementById("btnText");
+        const btnLoader = document.getElementById("btnLoader");
+        const toggleBtn = document.getElementById("togglePass");
+        const passInput = document.getElementById("adminPass");
+
+        // Toggle password visibility
+        toggleBtn.addEventListener("click", () => {
+            const type = passInput.type === "password" ? "text" : "password";
+            passInput.type = type;
+            toggleBtn.textContent = type === "password" ? "👁" : "🙈";
+        });
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const user = document.getElementById("adminUser").value.trim();
+            const pass = document.getElementById("adminPass").value;
+
+            // Show loader
+            btnText.style.display   = "none";
+            btnLoader.style.display = "inline";
+            errorMsg.style.display  = "none";
+
+            setTimeout(() => {
+                btnText.style.display   = "inline";
+                btnLoader.style.display = "none";
+
+                if (user === ADMIN_USERNAME && pass === ADMIN_PASSWORD) {
+                    sessionStorage.setItem("adminAuth", "true");
+                    sessionStorage.setItem("adminUser", user);
+                    window.location.href = "admin-portal.html";
+                } else {
+                    errorMsg.style.display = "block";
+                    document.getElementById("adminPass").value = "";
+
+                    // Shake animation on error
+                    const container = document.querySelector(".al-form-container");
+                    container.classList.add("shake");
+                    setTimeout(() => container.classList.remove("shake"), 500);
+                }
+            }, 900);
+        });
+
+    </script>
+
+</body>
+
+</html>

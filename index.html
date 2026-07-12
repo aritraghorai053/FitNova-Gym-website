@@ -11,51 +11,65 @@
 
 <body>
 
-
-    <nav>
+    <nav id="mainNav">
 
         <div class="left-section">
             <a href="index.html">
                 <img class="logo" src="Thumbnails/logo.png" alt="logo">
             </a>
-                <div class="tooltip">FitNova</div>
-            </div>
-
-        <div class="mid-section">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#trainers">Trainers</a></li>
-                <li><a href="#membership">Membership</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="tooltip">FitNova</div>
         </div>
 
-        <div class="right-section">
-            <ul>
-                <li>
-                    <a href="join-now.html">
-                        <button class="neon-btn">Join Now</button>
-                    </a>
-                </li>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
-                <li>
-                    <a href="login.html">
-                        <button class="neon-btn">Login</button>
-                    </a>
-                </li>
+        <div class="nav-menu" id="navMenu">
 
-                <li>
-                    <a href="register.html">
-                        <button class="neon-btn">Register</button>
-                    </a>
+            <div class="mid-section">
+                <ul>
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#trainers" class="nav-link">Trainers</a></li>
+                    <li><a href="#membership" class="nav-link">Membership</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="right-section">
+                <ul>
+                    <li>
+                        <a href="join-now.html">
+                            <button class="neon-btn">Join Now</button>
+                        </a>
                     </li>
-            </ul>
+
+                    <li>
+                        <a href="login.html">
+                            <button class="neon-btn">Login</button>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="register.html">
+                            <button class="neon-btn">Register</button>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="admin-login.html" id="adminNavBtn">
+                            <button class="admin-btn" title="Admin Portal">&#9881; Admin</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
     </nav>
-
 
     <section class="home-section" id="home">
 
@@ -79,8 +93,6 @@
         </div>
 
     </section>
-
-
 
     <section class="about-section" id="about">
 
@@ -114,7 +126,6 @@
 
         </div>
 
-
         <div class="about-side-content">
 
             <div class="info-card">
@@ -136,8 +147,6 @@
 
     </section>
 
-
-
     <section class="programs-section" id="programs">
 
         <div class="programs-heading">
@@ -156,9 +165,7 @@
 
         </div>
 
-
         <div class="programs-container">
-
 
             <div class="program-card">
 
@@ -179,8 +186,6 @@
 
             </div>
 
-
-
             <div class="program-card">
 
                 <img src="Thumbnails/programs_2.png" alt="program">
@@ -199,8 +204,6 @@
                 </div>
 
             </div>
-
-
 
             <div class="program-card">
 
@@ -221,8 +224,6 @@
 
             </div>
 
-
-
             <div class="program-card">
 
                 <img src="Thumbnails/programs_4.png" alt="program">
@@ -242,8 +243,6 @@
 
             </div>
 
-
-
             <div class="program-card">
 
                 <img src="Thumbnails/programs_5.png" alt="program">
@@ -262,8 +261,6 @@
                 </div>
 
             </div>
-
-
 
             <div class="program-card">
 
@@ -288,7 +285,6 @@
 
     </section>
 
-
     <section class="trainers-section" id="trainers">
 
         <div class="trainers-heading">
@@ -308,9 +304,7 @@
 
         </div>
 
-
         <div class="trainers-container">
-
 
             <div class="trainer-card">
 
@@ -334,8 +328,6 @@
 
             </div>
 
-
-
             <div class="trainer-card">
 
                 <img src="Thumbnails/trainers_2.png" alt="trainer">
@@ -358,8 +350,6 @@
 
             </div>
 
-
-
             <div class="trainer-card">
 
                 <img src="Thumbnails/trainers_3.png" alt="trainer">
@@ -381,8 +371,6 @@
                 </div>
 
             </div>
-
-
 
             <div class="trainer-card">
 
@@ -410,8 +398,6 @@
 
     </section>
 
-
-
     <section class="membership-section" id="membership">
 
         <div class="membership-overlay"></div>
@@ -430,9 +416,7 @@
                 No contract or credit card required.
             </h3>
 
-
             <div class="membership-container">
-
 
                 <div class="membership-card">
 
@@ -457,8 +441,6 @@
                     </button>
 
                 </div>
-
-
 
                 <div class="membership-card active-plan">
 
@@ -486,8 +468,6 @@
                     </button>
 
                 </div>
-
-
 
                 <div class="membership-card">
 
@@ -523,14 +503,11 @@
 
     </section>
 
-
-
     <section class="contact-section" id="contact">
 
         <div class="contact-overlay"></div>
 
         <div class="contact-container">
-
 
             <div class="contact-left">
 
@@ -547,7 +524,6 @@
                     journey? We’re here for you.
                 </p>
 
-
                 <div class="contact-info-card">
 
                     <div class="contact-icon">📍</div>
@@ -559,8 +535,6 @@
 
                 </div>
 
-
-
                 <div class="contact-info-card">
 
                     <div class="contact-icon">📞</div>
@@ -571,8 +545,6 @@
                     </div>
 
                 </div>
-
-
 
                 <div class="contact-info-card">
 
@@ -587,13 +559,11 @@
 
             </div>
 
-
-
             <div class="contact-right">
 
                 <form class="contact-form">
 
-                    <h2>➤  SEND US A MESSAGE</h2>
+                    <h2>➤ SEND US A MESSAGE</h2>
 
                     <div class="input-box">
                         <input type="text" placeholder="Your Name">
@@ -612,7 +582,7 @@
                     </div>
 
                     <button type="submit" class="contact-btn">
-                        ➤  SEND MESSAGE
+                        ➤ SEND MESSAGE
                     </button>
 
                 </form>
@@ -623,12 +593,9 @@
 
     </section>
 
-
-
     <footer class="footer">
 
         <div class="footer-container">
-
 
             <div class="footer-box">
 
@@ -642,8 +609,6 @@
 
             </div>
 
-
-
             <div class="footer-box">
 
                 <h3>Quick Links</h3>
@@ -655,10 +620,7 @@
                 <a href="#membership">Membership</a>
                 <a href="#contact">Contact</a>
 
-
             </div>
-
-
 
             <div class="footer-box">
 
@@ -670,29 +632,49 @@
 
             </div>
 
-
-
             <div class="footer-box">
 
                 <h3>Follow Us</h3>
 
                 <div class="social-icons">
-                    <a href="#instagram">Instagram</a>
-                    <a href="#facebook">Facebook</a>
-                    <a href="#youtube">YouTube</a>
-                    <a href="#whatsapp">WhatsApp</a>
+                    <a href="https://www.instagram.com/a.r.i.t.r.a_g.h.o.r.a.i/" target="_blank">Instagram</a>
+
+                    <a href="https://www.facebook.com/sarnic.roy.2025" target="_blank">Facebook</a>
+
+                    <a href="https://www.youtube.com/@AritraGhorai-kc7rf" target="_blank">YouTube</a>
+
+                    <a href="https://wa.me/919382799053" target="_blank">WhatsApp</a>
                 </div>
 
             </div>
 
         </div>
 
-
         <div class="footer-bottom">
             &copy; 2026 FitNova. All Rights Reserved.
         </div>
 
     </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('nav-open');
+            hamburgerBtn.classList.toggle('active', isOpen);
+            hamburgerBtn.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when a nav link is clicked (mobile)
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('nav-open');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
 
 </body>
 

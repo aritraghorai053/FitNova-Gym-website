@@ -1,0 +1,399 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: black;
+    min-height: 100vh;
+}
+
+.admin-login-section{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+.al-left{
+    flex: 1.1;
+
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.65)),
+        url("../Thumbnails/login.png");
+
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 60px 50px;
+}
+
+.al-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,102,0,0.08) 0%,
+        rgba(0,0,0,0.5) 100%
+    );
+}
+
+.al-logo-box{
+    position: absolute;
+    top: 40px;
+    left: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    z-index: 2;
+}
+
+.al-logo-box img{
+    width: 52px;
+}
+
+.al-logo-box h1{
+    color: white;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.al-left-text{
+    position: relative;
+    z-index: 2;
+}
+
+.al-left-text h2{
+    color: white;
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.al-left-text h2 span{
+    color: #ff6600;
+}
+
+.al-left-text p{
+    color: #d9d9d9;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 380px;
+}
+
+.al-right{
+    width: 42%;
+
+    background: #080808;
+    border-left: 1px solid rgba(255,102,0,0.15);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 40px;
+}
+
+.al-form-container{
+    width: 100%;
+    max-width: 440px;
+}
+
+.admin-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(255,102,0,0.12);
+    border: 1px solid rgba(255,102,0,0.4);
+
+    color: #ff6600;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    padding: 8px 18px;
+    border-radius: 30px;
+
+    margin-bottom: 28px;
+}
+
+.admin-badge span{
+    font-size: 18px;
+}
+
+.al-form-container h1{
+    color: white;
+    font-size: 58px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+}
+
+.al-form-container h1 span{
+    color: #ff6600;
+}
+
+.al-subtitle{
+    color: #bdbdbd;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.al-input-box{
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.al-input-box label{
+    display: block;
+    color: #bdbdbd;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.al-input-box input{
+    width: 100%;
+    height: 60px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 40px;
+
+    background: rgba(255,255,255,0.04);
+
+    padding: 0 25px;
+    padding-right: 55px;
+
+    color: white;
+    font-size: 17px;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.al-input-box input:focus{
+    border-color: #ff6600;
+    background: rgba(255,102,0,0.06);
+    box-shadow:
+        0 0 12px rgba(255,102,0,0.35),
+        0 0 25px rgba(255,102,0,0.15);
+}
+
+.al-input-box input::placeholder{
+    color: #555;
+}
+
+.toggle-pass{
+    position: absolute;
+    right: 18px;
+    bottom: 15px;
+
+    background: transparent;
+    border: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.toggle-pass:hover{
+    color: #ff6600;
+    transform: none;
+    box-shadow: none;
+}
+
+.error-msg{
+    background: rgba(255, 50, 50, 0.1);
+    border: 1px solid rgba(255, 50, 50, 0.4);
+    color: #ff6666;
+
+    font-size: 14px;
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.al-submit-btn{
+    width: 100%;
+    height: 62px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: linear-gradient(135deg, #ff6600, #ff8c00);
+
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.4s;
+
+    margin-top: 8px;
+
+    box-shadow: 0 0 15px rgba(255,102,0,0.3);
+}
+
+.al-submit-btn:hover{
+    background: linear-gradient(135deg, #ff8c00, #ffaa00);
+    transform: scale(1.03);
+    box-shadow:
+        0 0 15px rgba(255,102,0,0.6),
+        0 0 35px rgba(255,102,0,0.3);
+}
+
+.al-bottom-links{
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.al-bottom-links a{
+    color: #888;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.al-bottom-links a:hover{
+    color: #ff6600;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%       { transform: translateX(-8px); }
+    40%       { transform: translateX(8px); }
+    60%       { transform: translateX(-6px); }
+    80%       { transform: translateX(6px); }
+}
+
+.shake{
+    animation: shake 0.5s ease-in-out;
+}
+
+@media(max-width: 992px){
+
+    .al-left{
+        padding: 50px 35px 40px;
+    }
+
+    .al-logo-box{
+        left: 35px;
+        top: 30px;
+    }
+
+    .al-left-text h2{
+        font-size: 56px;
+    }
+
+    .al-form-container h1{
+        font-size: 46px;
+    }
+}
+
+@media(max-width: 768px){
+
+    .admin-login-section{
+        flex-direction: column;
+    }
+
+    .al-left{
+        min-height: 45vh;
+        padding: 35px 25px;
+        justify-content: flex-end;
+    }
+
+    .al-logo-box{
+        top: 20px;
+        left: 25px;
+    }
+
+    .al-logo-box h1{
+        font-size: 28px;
+    }
+
+    .al-logo-box img{
+        width: 40px;
+    }
+
+    .al-left-text h2{
+        font-size: 44px;
+    }
+
+    .al-left-text p{
+        font-size: 16px;
+    }
+
+    .al-right{
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid rgba(255,102,0,0.15);
+        padding: 40px 25px;
+    }
+
+    .al-form-container h1{
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 480px){
+
+    .al-left{
+        min-height: 38vh;
+    }
+
+    .al-left-text h2{
+        font-size: 36px;
+    }
+
+    .al-form-container h1{
+        font-size: 34px;
+    }
+
+    .al-subtitle{
+        font-size: 15px;
+    }
+
+    .al-input-box input{
+        height: 54px;
+        font-size: 15px;
+    }
+
+    .al-submit-btn{
+        height: 56px;
+        font-size: 16px;
+    }
+
+    .al-bottom-links{
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+}
