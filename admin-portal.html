@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitNova Admin Portal</title>
+    <meta name="description" content="FitNova Admin Portal - Manage users, messages, and site settings.">
+    <link rel="stylesheet" href="CSS/admin-portal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+            <img src="Thumbnails/logo.png" alt="Logo" class="sidebar-logo">
+            <div>
+                <h2 class="sidebar-brand">FIT<span>NOVA</span></h2>
+                <p class="sidebar-role">Admin Panel</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <div class="nav-group-label">MAIN</div>
+
+            <a href="#" class="nav-item active" data-section="dashboard" onclick="showSection('dashboard', this)">
+                <span class="nav-icon">&#9638;</span>
+                <span class="nav-text">Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="users" onclick="showSection('users', this)">
+                <span class="nav-icon">&#128101;</span>
+                <span class="nav-text">Users</span>
+                <span class="nav-badge">124</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="messages" onclick="showSection('messages', this)">
+                <span class="nav-icon">&#128172;</span>
+                <span class="nav-text">Messages</span>
+                <span class="nav-badge unread">7</span>
+            </a>
+
+            <div class="nav-group-label">MANAGE</div>
+
+            <a href="#" class="nav-item" data-section="members" onclick="showSection('members', this)">
+                <span class="nav-icon">&#127947;</span>
+                <span class="nav-text">Memberships</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="trainers" onclick="showSection('trainers', this)">
+                <span class="nav-icon">&#127947;</span>
+                <span class="nav-text">Trainers</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="programs" onclick="showSection('programs', this)">
+                <span class="nav-icon">&#128218;</span>
+                <span class="nav-text">Programs</span>
+            </a>
+
+            <div class="nav-group-label">SETTINGS</div>
+
+            <a href="#" class="nav-item" data-section="site-settings" onclick="showSection('site-settings', this)">
+                <span class="nav-icon">&#9881;</span>
+                <span class="nav-text">Site Settings</span>
+            </a>
+
+            <a href="#" class="nav-item" data-section="account" onclick="showSection('account', this)">
+                <span class="nav-icon">&#128100;</span>
+                <span class="nav-text">My Account</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="admin-info">
+                <div class="admin-avatar">AG</div>
+                <div class="admin-details">
+                    <p class="admin-name">Aritra Ghorai</p>
+                    <p class="admin-status">&#128994; Online</p>
+                </div>
+            </div>
+            <a href="index.html" class="back-to-site-btn" title="Return to the main website">&#8617; Back to Website</a>
+            <button class="logout-btn" onclick="adminLogout()">&#9889; Logout</button>
+        </div>
+
+    </aside>
+
+    <!-- ===== MOBILE TOGGLE ===== -->
+    <button class="sidebar-toggle" id="sidebarToggle" onclick="toggleSidebar()">&#9776;</button>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content" id="mainContent">
+
+        <!-- TOP BAR -->
+        <div class="topbar">
+            <div class="topbar-left">
+                <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                <span class="breadcrumb">Admin / <span id="breadcrumbCurrent">Dashboard</span></span>
+            </div>
+            <div class="topbar-right">
+                <div class="search-box">
+                    <span class="search-icon">&#128269;</span>
+                    <input type="text" placeholder="Search..." id="globalSearch">
+                </div>
+                <div class="notif-bell" title="Notifications">
+                    &#128276;
+                    <span class="notif-dot"></span>
+                </div>
+                <div class="topbar-avatar" title="Admin">AG</div>
+            </div>
+        </div>
+
+        <!-- ======== SECTION: DASHBOARD ======== -->
+        <section class="portal-section active" id="section-dashboard">
+
+            <div class="stats-grid">
+
+                <div class="stat-card orange">
+                    <div class="stat-card-icon">&#128101;</div>
+                    <div class="stat-card-info">
+                        <h3>124</h3>
+                        <p>Total Users</p>
+                    </div>
+                    <div class="stat-card-trend up">+12% &#8593;</div>
+                </div>
+
+                <div class="stat-card cyan">
+                    <div class="stat-card-icon">&#128172;</div>
+                    <div class="stat-card-info">
+                        <h3>7</h3>
+                        <p>Unread Messages</p>
+                    </div>
+                    <div class="stat-card-trend up">+3 new</div>
+                </div>
+
+                <div class="stat-card green">
+                    <div class="stat-card-icon">&#127947;</div>
+                    <div class="stat-card-info">
+                        <h3>89</h3>
+                        <p>Active Members</p>
+                    </div>
+                    <div class="stat-card-trend up">+5% &#8593;</div>
+                </div>
+
+                <div class="stat-card purple">
+                    <div class="stat-card-icon">&#128176;</div>
+                    <div class="stat-card-info">
+                        <h3>&#8377;2.4L</h3>
+                        <p>Monthly Revenue</p>
+                    </div>
+                    <div class="stat-card-trend up">+18% &#8593;</div>
+                </div>
+
+            </div>
+
+            <!-- Recent Activity + Quick Actions -->
+            <div class="dashboard-grid">
+
+                <div class="dash-card">
+                    <div class="card-header">
+                        <h3>Recent Registrations</h3>
+                        <button class="card-btn" onclick="showSection('users', document.querySelector('[data-section=users]'))">View All</button>
+                    </div>
+                    <div class="recent-list" id="recentList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <div class="dash-card">
+                    <div class="card-header">
+                        <h3>Unread Messages</h3>
+                        <button class="card-btn" onclick="showSection('messages', document.querySelector('[data-section=messages]'))">View All</button>
+                    </div>
+                    <div class="recent-list" id="unreadList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <div class="dash-card">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="qa-btn" onclick="showSection('users', document.querySelector('[data-section=users]'))">
+                            <span>&#128101;</span> Manage Users
+                        </button>
+                        <button class="qa-btn" onclick="showSection('messages', document.querySelector('[data-section=messages]'))">
+                            <span>&#128172;</span> Read Messages
+                        </button>
+                        <button class="qa-btn" onclick="showSection('site-settings', document.querySelector('[data-section=site-settings]'))">
+                            <span>&#9881;</span> Site Settings
+                        </button>
+                        <button class="qa-btn" onclick="showSection('members', document.querySelector('[data-section=members]'))">
+                            <span>&#127775;</span> Memberships
+                        </button>
+                        <button class="qa-btn" onclick="showSection('trainers', document.querySelector('[data-section=trainers]'))">
+                            <span>&#127947;</span> Trainers
+                        </button>
+                        <button class="qa-btn" onclick="showSection('programs', document.querySelector('[data-section=programs]'))">
+                            <span>&#128218;</span> Programs
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: USERS ======== -->
+        <section class="portal-section" id="section-users">
+
+            <div class="section-header-bar">
+                <h2>User Management</h2>
+                <button class="add-btn" onclick="openAddUserModal()">+ Add User</button>
+            </div>
+
+            <div class="filter-bar">
+                <input type="text" placeholder="Search users..." class="filter-input" oninput="filterUsers(this.value)" id="userSearch">
+                <select class="filter-select" onchange="filterUsersByStatus(this.value)" id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+
+            <div class="table-wrapper">
+                <table class="data-table" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Plan</th>
+                            <th>Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: MESSAGES ======== -->
+        <section class="portal-section" id="section-messages">
+
+            <div class="section-header-bar">
+                <h2>Messages</h2>
+                <div class="msg-filters">
+                    <button class="msg-tab active" onclick="filterMessages('all', this)">All</button>
+                    <button class="msg-tab" onclick="filterMessages('unread', this)">Unread <span class="tab-badge">7</span></button>
+                    <button class="msg-tab" onclick="filterMessages('read', this)">Read</button>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messagesContainer">
+                <!-- Populated by JS -->
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: MEMBERSHIPS ======== -->
+        <section class="portal-section" id="section-members">
+
+            <div class="section-header-bar">
+                <h2>Membership Plans</h2>
+                <button class="add-btn" onclick="openAddPlanModal()">+ Add Plan</button>
+            </div>
+
+            <div class="plans-grid" id="plansGrid">
+                <!-- Populated by JS -->
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: TRAINERS ======== -->
+        <section class="portal-section" id="section-trainers">
+
+            <div class="section-header-bar">
+                <h2>Trainers</h2>
+                <button class="add-btn" onclick="openAddTrainerModal()">+ Add Trainer</button>
+            </div>
+
+            <div class="trainers-admin-grid" id="trainersAdminGrid">
+                <!-- Populated by JS -->
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: PROGRAMS ======== -->
+        <section class="portal-section" id="section-programs">
+
+            <div class="section-header-bar">
+                <h2>Programs</h2>
+            </div>
+
+            <div class="programs-admin-grid" id="programsAdminGrid">
+                <!-- Populated by JS -->
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: SITE SETTINGS ======== -->
+        <section class="portal-section" id="section-site-settings">
+
+            <div class="section-header-bar">
+                <h2>Site Settings</h2>
+            </div>
+
+            <div class="settings-grid">
+
+                <!-- General Info -->
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#127968;</span>
+                        <h3>General Information</h3>
+                    </div>
+                    <div class="settings-form">
+
+                        <div class="settings-field">
+                            <label>Gym Name</label>
+                            <input type="text" id="gymName" value="FitNova" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Tagline</label>
+                            <input type="text" id="gymTagline" value="Transform Beyond Limits" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Email</label>
+                            <input type="email" id="gymEmail" value="fitnova9962@gmail.com" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Phone</label>
+                            <input type="text" id="gymPhone" value="+91 9382799053" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Address</label>
+                            <input type="text" id="gymAddress" value="Mahishadal, Purba Medinipur, West Bengal" class="settings-input">
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('general')">Save General Info</button>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#127760;</span>
+                        <h3>Social Media Links</h3>
+                    </div>
+                    <div class="settings-form">
+
+                        <div class="settings-field">
+                            <label>Instagram</label>
+                            <input type="url" id="instagram" placeholder="https://instagram.com/fitnova" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Facebook</label>
+                            <input type="url" id="facebook" placeholder="https://facebook.com/fitnova" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>YouTube</label>
+                            <input type="url" id="youtube" placeholder="https://youtube.com/fitnova" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>WhatsApp Number</label>
+                            <input type="text" id="whatsapp" placeholder="+91 9382799053" class="settings-input">
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('social')">Save Social Links</button>
+                    </div>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#127968;</span>
+                        <h3>Homepage Content</h3>
+                    </div>
+                    <div class="settings-form">
+
+                        <div class="settings-field">
+                            <label>Hero Heading</label>
+                            <input type="text" id="heroHeading" value="SHAPE YOUR BODY" class="settings-input">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Hero Subtext</label>
+                            <textarea id="heroSubtext" class="settings-textarea">Transform your body with professional trainers, modern equipment, and personalized workout plans.</textarea>
+                        </div>
+
+                        <div class="settings-field">
+                            <label>CTA Button Text</label>
+                            <input type="text" id="ctaText" value="Join Now" class="settings-input">
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('hero')">Save Homepage</button>
+                    </div>
+                </div>
+
+                <!-- Toggles -->
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#9881;</span>
+                        <h3>Feature Toggles</h3>
+                    </div>
+                    <div class="settings-form">
+
+                        <div class="toggle-field">
+                            <div class="toggle-info">
+                                <span class="toggle-label">Maintenance Mode</span>
+                                <span class="toggle-desc">Show maintenance page to visitors</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="maintenanceMode">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-field">
+                            <div class="toggle-info">
+                                <span class="toggle-label">User Registrations</span>
+                                <span class="toggle-desc">Allow new user registrations</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="registrations" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-field">
+                            <div class="toggle-info">
+                                <span class="toggle-label">Contact Form</span>
+                                <span class="toggle-desc">Enable contact form submissions</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="contactForm" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-field">
+                            <div class="toggle-info">
+                                <span class="toggle-label">Newsletter</span>
+                                <span class="toggle-desc">Show newsletter subscription popup</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="newsletter">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <div class="toggle-field">
+                            <div class="toggle-info">
+                                <span class="toggle-label">Free Trial Banner</span>
+                                <span class="toggle-desc">Show 14-day free trial banner</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="freeTrial" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('toggles')">Save Toggles</button>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="settings-card full-width">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#128176;</span>
+                        <h3>Membership Pricing</h3>
+                    </div>
+                    <div class="settings-form pricing-form">
+
+                        <div class="pricing-row">
+                            <div class="settings-field">
+                                <label>Single Session Price (&#8377;)</label>
+                                <input type="number" id="price1" value="499" class="settings-input">
+                            </div>
+                            <div class="settings-field">
+                                <label>10 Session Package (&#8377;)</label>
+                                <input type="number" id="price2" value="3999" class="settings-input">
+                            </div>
+                            <div class="settings-field">
+                                <label>40 Session Package (&#8377;)</label>
+                                <input type="number" id="price3" value="11999" class="settings-input">
+                            </div>
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('pricing')">Save Pricing</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======== SECTION: ACCOUNT ======== -->
+        <section class="portal-section" id="section-account">
+
+            <div class="section-header-bar">
+                <h2>My Account</h2>
+            </div>
+
+            <div class="account-grid">
+
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#128100;</span>
+                        <h3>Admin Profile</h3>
+                    </div>
+                    <div class="settings-form">
+                        <div class="account-avatar-section">
+                            <div class="big-avatar">AG</div>
+                            <div>
+                                <p class="account-name">Aritra Ghorai</p>
+                                <p class="account-role">Super Administrator</p>
+                            </div>
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Display Name</label>
+                            <input type="text" value="Aritra Ghorai" class="settings-input" id="displayName">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Username</label>
+                            <input type="text" value="Aritra-Ghorai" class="settings-input" id="adminUsername2" readonly>
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Email</label>
+                            <input type="email" value="aritra@fitnova.com" class="settings-input" id="adminEmail">
+                        </div>
+
+                        <button class="save-btn" onclick="saveSettings('profile')">Update Profile</button>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <div class="settings-card-header">
+                        <span class="settings-icon">&#128274;</span>
+                        <h3>Change Password</h3>
+                    </div>
+                    <div class="settings-form">
+
+                        <div class="settings-field">
+                            <label>Current Password</label>
+                            <input type="password" placeholder="Enter current password" class="settings-input" id="currentPass">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>New Password</label>
+                            <input type="password" placeholder="Enter new password" class="settings-input" id="newPass">
+                        </div>
+
+                        <div class="settings-field">
+                            <label>Confirm New Password</label>
+                            <input type="password" placeholder="Confirm new password" class="settings-input" id="confirmPass">
+                        </div>
+
+                        <button class="save-btn" onclick="changePassword()">Change Password</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===== MODALS ===== -->
+
+    <!-- Add User Modal -->
+    <div class="modal-overlay" id="addUserModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="modal-close" onclick="closeModal('addUserModal')">&#10005;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-field">
+                    <label>Full Name</label>
+                    <input type="text" id="newUserName" placeholder="Enter name" class="settings-input">
+                </div>
+                <div class="settings-field">
+                    <label>Email</label>
+                    <input type="email" id="newUserEmail" placeholder="Enter email" class="settings-input">
+                </div>
+                <div class="settings-field">
+                    <label>Phone</label>
+                    <input type="text" id="newUserPhone" placeholder="Enter phone" class="settings-input">
+                </div>
+                <div class="settings-field">
+                    <label>Membership Plan</label>
+                    <select id="newUserPlan" class="settings-input">
+                        <option value="Single Session">Single Session</option>
+                        <option value="10 Session">10 Session Package</option>
+                        <option value="40 Session">40 Session Package</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-btn" onclick="closeModal('addUserModal')">Cancel</button>
+                <button class="save-btn" onclick="addNewUser()">Add User</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message View Modal -->
+    <div class="modal-overlay" id="messageModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Message Details</h3>
+                <button class="modal-close" onclick="closeModal('messageModal')">&#10005;</button>
+            </div>
+            <div class="modal-body" id="messageModalBody">
+            </div>
+            <div class="modal-footer">
+                <button class="delete-btn" id="msgDeleteBtn">Delete</button>
+                <button class="save-btn" onclick="closeModal('messageModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+    /* ================================================
+       FITNOVA ADMIN PORTAL — JAVASCRIPT
+       ================================================ */
+
+    // Guard: Redirect if not logged in
+    window.onload = function () {
+        if (!sessionStorage.getItem('adminAuth')) {
+            window.location.href = 'admin-login.html';
+        }
+        initPortal();
+    };
+
+    // ── SAMPLE DATA ──────────────────────────────────
+
+    let users = [
+        { id: 1, name: 'Rahul Sharma', email: 'rahul@example.com', phone: '+91 9876543210', plan: '10 Session', status: 'active', joined: '2026-06-01' },
+        { id: 2, name: 'Priya Patel', email: 'priya@example.com', phone: '+91 9765432109', plan: '40 Session', status: 'active', joined: '2026-06-05' },
+        { id: 3, name: 'Amiit Gupta', email: 'amit@example.com', phone: '+91 9654321098', plan: 'Single Session', status: 'inactive', joined: '2026-05-22' },
+        { id: 4, name: 'Sneha Das', email: 'sneha@example.com', phone: '+91 9543210987', plan: '10 Session', status: 'active', joined: '2026-06-10' },
+        { id: 5, name: 'Vikram Bose', email: 'vikram@example.com', phone: '+91 9432109876', plan: '40 Session', status: 'pending', joined: '2026-06-15' },
+        { id: 6, name: 'Kavita Rao', email: 'kavita@example.com', phone: '+91 9321098765', plan: 'Single Session', status: 'active', joined: '2026-05-30' },
+        { id: 7, name: 'Suresh Nair', email: 'suresh@example.com', phone: '+91 9210987654', plan: '10 Session', status: 'active', joined: '2026-06-18' },
+        { id: 8, name: 'Ananya Sen', email: 'ananya@example.com', phone: '+91 9109876543', plan: '40 Session', status: 'active', joined: '2026-06-20' },
+    ];
+
+    let messages = [
+        { id: 1, name: 'Rohit Kumar', email: 'rohit@example.com', phone: '+91 9875551234', message: 'I am interested in the 40 session package. Can you give me more details about the timings and which trainer would be assigned to me?', date: '2026-07-10', read: false },
+        { id: 2, name: 'Meena Joshi', email: 'meena@example.com', phone: '+91 9764441233', message: 'Hi, I wanted to know if you offer online training sessions. I live far from the gym and cannot visit daily.', date: '2026-07-10', read: false },
+        { id: 3, name: 'Arjun Pillai', email: 'arjun@example.com', phone: '+91 9653331232', message: 'Is there any discount available for students? I am in college and looking for an affordable fitness plan.', date: '2026-07-09', read: false },
+        { id: 4, name: 'Deepika Menon', email: 'deepika@example.com', phone: '+91 9542221231', message: 'Can I book a free trial session before purchasing a package? Also, what are the gym timings?', date: '2026-07-09', read: false },
+        { id: 5, name: 'Karan Verma', email: 'karan@example.com', phone: '+91 9431111230', message: 'I am looking for a personal trainer specializing in weight loss. Do you have female trainers available?', date: '2026-07-08', read: false },
+        { id: 6, name: 'Sunita Singh', email: 'sunita@example.com', phone: '+91 9320001229', message: 'Hello, I enrolled last month but have not received my program schedule yet. Please help.', date: '2026-07-07', read: false },
+        { id: 7, name: 'Rajesh Tiwari', email: 'rajesh@example.com', phone: '+91 9219991228', message: 'I am having trouble with the online registration form. The submit button is not working on my phone.', date: '2026-07-07', read: false },
+        { id: 8, name: 'Pooja Kapoor', email: 'pooja@example.com', phone: '+91 9108881227', message: 'Thank you FitNova! I have lost 8 kg in just 2 months. Amazing trainers and programs!', date: '2026-07-06', read: true },
+        { id: 9, name: 'Dinesh Raut', email: 'dinesh@example.com', phone: '+91 9997771226', message: 'Do you have parking facilities at the gym? I will be driving from Tamluk.', date: '2026-07-05', read: true },
+    ];
+
+    let trainersData = [
+        { id: 1, name: 'Ethan Carter', role: 'Strength Coach', exp: '12+ Years', sessions: 500, status: 'active' },
+        { id: 2, name: 'Sophia Blake', role: 'Fat Loss Specialist', exp: '9+ Years', sessions: 1000, status: 'active' },
+        { id: 3, name: 'Marcus Reed', role: 'MMA & Boxing Coach', exp: '10+ Years', sessions: 380, status: 'active' },
+        { id: 4, name: 'Ava Wilson', role: 'Yoga & Wellness Coach', exp: '8+ Years', sessions: 620, status: 'active' },
+    ];
+
+    let plansData = [
+        { id: 1, name: 'Single Session', type: 'Membership', price: 499, features: ['Personalized Workout', 'Exercise Form Correction', 'Lifestyle Plan'], popular: false },
+        { id: 2, name: '10 Session Package', type: 'Membership', price: 3999, features: ['Personalized Workout', 'Exercise Form Correction', 'Lifestyle Plan', 'Personalized Program'], popular: true },
+        { id: 3, name: '40 Session Package', type: 'Membership', price: 11999, features: ['Personalized Workout', 'Exercise Form Correction', 'Lifestyle Plan', 'Personalized Program', '8+ Weeks Plan'], popular: false },
+    ];
+
+    let programsData = [
+        { id: 1, name: 'Muscle Gain', category: 'Strength', link: 'muscel-gain.html', status: 'active' },
+        { id: 2, name: 'Fat Burn', category: 'Cardio', link: 'fat-burn.html', status: 'active' },
+        { id: 3, name: 'Strength', category: 'Strength', link: 'Strength.html', status: 'active' },
+        { id: 4, name: 'CrossFit', category: 'HIIT', link: 'Cross-fit.html', status: 'active' },
+        { id: 5, name: 'MMA Fitness', category: 'Combat', link: 'MMA-Fitness.html', status: 'active' },
+        { id: 6, name: 'Calisthenics', category: 'Bodyweight', link: 'Calisthenics.html', status: 'active' },
+    ];
+
+    // ── INIT ─────────────────────────────────────────
+    function initPortal() {
+        renderUsersTable(users);
+        renderMessages(messages);
+        renderDashboardRecent();
+        renderMemberships();
+        renderTrainers();
+        renderPrograms();
+    }
+
+    // ── SECTION NAVIGATION ───────────────────────────
+    function showSection(id, clickedEl) {
+        // Prevent default
+        event.preventDefault();
+
+        document.querySelectorAll('.portal-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+        document.getElementById('section-' + id).classList.add('active');
+
+        if (clickedEl && clickedEl.classList) {
+            clickedEl.classList.add('active');
+        }
+
+        const titles = {
+            dashboard: 'Dashboard',
+            users: 'User Management',
+            messages: 'Messages',
+            members: 'Membership Plans',
+            trainers: 'Trainers',
+            programs: 'Programs',
+            'site-settings': 'Site Settings',
+            account: 'My Account'
+        };
+
+        document.getElementById('pageTitle').textContent = titles[id] || id;
+        document.getElementById('breadcrumbCurrent').textContent = titles[id] || id;
+
+        // Close mobile sidebar
+        document.getElementById('sidebar').classList.remove('open');
+    }
+
+    // ── AUTH / LOGOUT ─────────────────────────────────
+    function adminLogout() {
+        if (confirm('Are you sure you want to log out?')) {
+            sessionStorage.removeItem('adminAuth');
+            sessionStorage.removeItem('adminUser');
+            window.location.href = 'admin-login.html';
+        }
+    }
+
+    // ── USERS TABLE ──────────────────────────────────
+    function renderUsersTable(data) {
+        const tbody = document.getElementById('usersTableBody');
+        if (!data.length) {
+            tbody.innerHTML = '<tr><td colspan="8" class="no-data">No users found.</td></tr>';
+            return;
+        }
+        tbody.innerHTML = data.map((u, i) => `
+            <tr class="table-row" id="user-row-${u.id}">
+                <td>${i + 1}</td>
+                <td><span class="user-name-cell">${u.name}</span></td>
+                <td>${u.email}</td>
+                <td>${u.phone}</td>
+                <td><span class="plan-chip">${u.plan}</span></td>
+                <td><span class="status-badge ${u.status}">${u.status}</span></td>
+                <td>${formatDate(u.joined)}</td>
+                <td class="action-btns">
+                    <button class="tbl-btn edit" onclick="editUser(${u.id})" title="Edit">&#9998;</button>
+                    <button class="tbl-btn delete" onclick="deleteUser(${u.id})" title="Delete">&#128465;</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function filterUsers(query) {
+        const filtered = users.filter(u =>
+            u.name.toLowerCase().includes(query.toLowerCase()) ||
+            u.email.toLowerCase().includes(query.toLowerCase()) ||
+            u.phone.includes(query)
+        );
+        renderUsersTable(filtered);
+    }
+
+    function filterUsersByStatus(status) {
+        const filtered = status === 'all' ? users : users.filter(u => u.status === status);
+        const q = document.getElementById('userSearch').value;
+        renderUsersTable(filtered.filter(u =>
+            !q || u.name.toLowerCase().includes(q.toLowerCase()) || u.email.toLowerCase().includes(q.toLowerCase())
+        ));
+    }
+
+    function deleteUser(id) {
+        if (confirm('Delete this user? This action cannot be undone.')) {
+            users = users.filter(u => u.id !== id);
+            renderUsersTable(users);
+            renderDashboardRecent();
+            showToast('User deleted successfully.', 'success');
+        }
+    }
+
+    function editUser(id) {
+        const u = users.find(x => x.id === id);
+        if (!u) return;
+        const name = prompt('Edit name:', u.name);
+        if (name !== null && name.trim()) {
+            u.name = name.trim();
+            renderUsersTable(users);
+            showToast('User updated.', 'success');
+        }
+    }
+
+    function openAddUserModal() {
+        document.getElementById('addUserModal').classList.add('show');
+    }
+
+    function addNewUser() {
+        const name = document.getElementById('newUserName').value.trim();
+        const email = document.getElementById('newUserEmail').value.trim();
+        const phone = document.getElementById('newUserPhone').value.trim();
+        const plan = document.getElementById('newUserPlan').value;
+
+        if (!name || !email) {
+            showToast('Please fill name and email.', 'error');
+            return;
+        }
+
+        const newUser = {
+            id: Date.now(),
+            name, email,
+            phone: phone || 'N/A',
+            plan,
+            status: 'active',
+            joined: new Date().toISOString().split('T')[0]
+        };
+
+        users.unshift(newUser);
+        renderUsersTable(users);
+        renderDashboardRecent();
+        closeModal('addUserModal');
+
+        // Clear form
+        ['newUserName', 'newUserEmail', 'newUserPhone'].forEach(id => {
+            document.getElementById(id).value = '';
+        });
+
+        showToast('New user added successfully!', 'success');
+    }
+
+    // ── MESSAGES ─────────────────────────────────────
+    function renderMessages(data) {
+        const container = document.getElementById('messagesContainer');
+        if (!data.length) {
+            container.innerHTML = '<div class="no-data-msg">No messages found.</div>';
+            return;
+        }
+        container.innerHTML = data.map(m => `
+            <div class="message-item ${m.read ? 'read' : 'unread'}" id="msg-${m.id}" onclick="viewMessage(${m.id})">
+                <div class="msg-avatar">${m.name.charAt(0)}</div>
+                <div class="msg-content">
+                    <div class="msg-top">
+                        <span class="msg-sender">${m.name}</span>
+                        <span class="msg-date">${formatDate(m.date)}</span>
+                    </div>
+                    <p class="msg-email">${m.email} &bull; ${m.phone}</p>
+                    <p class="msg-preview">${m.message.substring(0, 90)}${m.message.length > 90 ? '...' : ''}</p>
+                </div>
+                ${!m.read ? '<span class="unread-dot"></span>' : ''}
+            </div>
+        `).join('');
+    }
+
+    function filterMessages(type, btn) {
+        document.querySelectorAll('.msg-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        let data = messages;
+        if (type === 'unread') data = messages.filter(m => !m.read);
+        if (type === 'read') data = messages.filter(m => m.read);
+        renderMessages(data);
+    }
+
+    function viewMessage(id) {
+        const msg = messages.find(m => m.id === id);
+        if (!msg) return;
+
+        // Mark as read
+        msg.read = true;
+        document.getElementById(`msg-${id}`)?.classList.remove('unread');
+        document.getElementById(`msg-${id}`)?.classList.add('read');
+        const dot = document.getElementById(`msg-${id}`)?.querySelector('.unread-dot');
+        if (dot) dot.remove();
+
+        // Update unread badge
+        updateUnreadBadge();
+
+        document.getElementById('messageModalBody').innerHTML = `
+            <div class="msg-detail">
+                <div class="msg-detail-row"><strong>From:</strong> ${msg.name}</div>
+                <div class="msg-detail-row"><strong>Email:</strong> <a href="mailto:${msg.email}">${msg.email}</a></div>
+                <div class="msg-detail-row"><strong>Phone:</strong> ${msg.phone}</div>
+                <div class="msg-detail-row"><strong>Date:</strong> ${formatDate(msg.date)}</div>
+                <div class="msg-detail-message">${msg.message}</div>
+            </div>
+        `;
+
+        document.getElementById('msgDeleteBtn').onclick = () => {
+            messages = messages.filter(m => m.id !== id);
+            renderMessages(messages);
+            closeModal('messageModal');
+            showToast('Message deleted.', 'success');
+            updateUnreadBadge();
+        };
+
+        document.getElementById('messageModal').classList.add('show');
+    }
+
+    function updateUnreadBadge() {
+        const count = messages.filter(m => !m.read).length;
+        document.querySelectorAll('.nav-badge.unread').forEach(b => {
+            b.textContent = count;
+            if (count === 0) b.style.display = 'none';
+        });
+        const tabBadge = document.querySelector('.tab-badge');
+        if (tabBadge) tabBadge.textContent = count;
+    }
+
+    // ── DASHBOARD RECENT ────────────────────────────
+    function renderDashboardRecent() {
+        // Recent registrations
+        const recentList = document.getElementById('recentList');
+        if (recentList) {
+            recentList.innerHTML = users.slice(0, 5).map(u => `
+                <div class="recent-item">
+                    <div class="recent-avatar">${u.name.charAt(0)}</div>
+                    <div class="recent-info">
+                        <p class="recent-name">${u.name}</p>
+                        <p class="recent-sub">${u.plan} &bull; ${formatDate(u.joined)}</p>
+                    </div>
+                    <span class="status-badge ${u.status}">${u.status}</span>
+                </div>
+            `).join('');
+        }
+
+        // Unread messages
+        const unreadList = document.getElementById('unreadList');
+        if (unreadList) {
+            const unread = messages.filter(m => !m.read).slice(0, 5);
+            if (!unread.length) {
+                unreadList.innerHTML = '<p class="no-data-msg">No unread messages.</p>';
+            } else {
+                unreadList.innerHTML = unread.map(m => `
+                    <div class="recent-item clickable" onclick="showSection('messages', document.querySelector('[data-section=messages]')); setTimeout(() => viewMessage(${m.id}), 300)">
+                        <div class="recent-avatar msg-av">${m.name.charAt(0)}</div>
+                        <div class="recent-info">
+                            <p class="recent-name">${m.name}</p>
+                            <p class="recent-sub">${m.message.substring(0, 50)}...</p>
+                        </div>
+                        <span class="unread-dot static"></span>
+                    </div>
+                `).join('');
+            }
+        }
+    }
+
+    // ── MEMBERSHIPS ──────────────────────────────────
+    function renderMemberships() {
+        const grid = document.getElementById('plansGrid');
+        if (!grid) return;
+        grid.innerHTML = plansData.map(p => `
+            <div class="plan-admin-card ${p.popular ? 'popular' : ''}">
+                ${p.popular ? '<div class="popular-tag">MOST POPULAR</div>' : ''}
+                <h3>${p.name}</h3>
+                <div class="plan-price">&#8377;${p.price.toLocaleString()}</div>
+                <p class="plan-type">${p.type}</p>
+                <ul class="plan-features">
+                    ${p.features.map(f => `<li>&#10003; ${f}</li>`).join('')}
+                </ul>
+                <div class="plan-actions">
+                    <button class="tbl-btn edit" onclick="editPlan(${p.id})">&#9998; Edit</button>
+                    <button class="tbl-btn delete" onclick="deletePlan(${p.id})">&#128465; Delete</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function editPlan(id) {
+        const plan = plansData.find(p => p.id === id);
+        if (!plan) return;
+        const price = prompt('Edit price (in Rs):', plan.price);
+        if (price !== null && !isNaN(price)) {
+            plan.price = parseInt(price);
+            renderMemberships();
+            showToast('Plan price updated.', 'success');
+        }
+    }
+
+    function deletePlan(id) {
+        if (confirm('Delete this plan?')) {
+            plansData = plansData.filter(p => p.id !== id);
+            renderMemberships();
+            showToast('Plan deleted.', 'success');
+        }
+    }
+
+    function openAddPlanModal() {
+        const name = prompt('Plan name:');
+        if (!name) return;
+        const price = prompt('Price (in Rs):');
+        if (!price || isNaN(price)) return;
+        plansData.push({
+            id: Date.now(),
+            name: name.trim(),
+            type: 'Membership',
+            price: parseInt(price),
+            features: ['Personalized Workout'],
+            popular: false
+        });
+        renderMemberships();
+        showToast('New plan added.', 'success');
+    }
+
+    // ── TRAINERS ─────────────────────────────────────
+    function renderTrainers() {
+        const grid = document.getElementById('trainersAdminGrid');
+        if (!grid) return;
+        grid.innerHTML = trainersData.map(t => `
+            <div class="trainer-admin-card">
+                <div class="trainer-initial">${t.name.split(' ').map(w => w[0]).join('')}</div>
+                <div class="trainer-admin-info">
+                    <h3>${t.name}</h3>
+                    <p class="trainer-role-tag">${t.role}</p>
+                    <p class="trainer-meta">&#8987; ${t.exp} &bull; &#127775; ${t.sessions}+ sessions</p>
+                    <span class="status-badge ${t.status}">${t.status}</span>
+                </div>
+                <div class="trainer-admin-actions">
+                    <button class="tbl-btn edit" onclick="editTrainer(${t.id})">&#9998; Edit</button>
+                    <button class="tbl-btn delete" onclick="deleteTrainer(${t.id})">&#128465;</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function editTrainer(id) {
+        const t = trainersData.find(x => x.id === id);
+        if (!t) return;
+        const role = prompt('Edit role:', t.role);
+        if (role !== null && role.trim()) {
+            t.role = role.trim();
+            renderTrainers();
+            showToast('Trainer updated.', 'success');
+        }
+    }
+
+    function deleteTrainer(id) {
+        if (confirm('Remove this trainer?')) {
+            trainersData = trainersData.filter(t => t.id !== id);
+            renderTrainers();
+            showToast('Trainer removed.', 'success');
+        }
+    }
+
+    function openAddTrainerModal() {
+        const name = prompt('Trainer name:');
+        if (!name) return;
+        const role = prompt('Role/Specialization:');
+        if (!role) return;
+        trainersData.push({
+            id: Date.now(),
+            name: name.trim(),
+            role: role.trim(),
+            exp: '0+ Years',
+            sessions: 0,
+            status: 'active'
+        });
+        renderTrainers();
+        showToast('Trainer added.', 'success');
+    }
+
+    // ── PROGRAMS ─────────────────────────────────────
+    function renderPrograms() {
+        const grid = document.getElementById('programsAdminGrid');
+        if (!grid) return;
+        const cats = { Strength: '#ff6600', Cardio: '#00cec9', HIIT: '#fd79a8', Combat: '#e17055', Bodyweight: '#6c5ce7' };
+        grid.innerHTML = programsData.map(p => `
+            <div class="program-admin-card">
+                <div class="program-cat-dot" style="background:${cats[p.category] || '#ff6600'}"></div>
+                <h3>${p.name}</h3>
+                <span class="program-cat-chip" style="border-color:${cats[p.category] || '#ff6600'};color:${cats[p.category] || '#ff6600'}">${p.category}</span>
+                <span class="status-badge ${p.status}">${p.status}</span>
+                <div class="program-admin-actions">
+                    <a href="${p.link}" target="_blank" class="tbl-btn view">&#128065; View</a>
+                    <button class="tbl-btn" onclick="toggleProgram(${p.id})" style="color:${p.status === 'active' ? '#f39c12' : '#00b894'}">
+                        ${p.status === 'active' ? '&#9632; Disable' : '&#9654; Enable'}
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function toggleProgram(id) {
+        const p = programsData.find(x => x.id === id);
+        if (p) {
+            p.status = p.status === 'active' ? 'inactive' : 'active';
+            renderPrograms();
+            showToast(`Program ${p.status === 'active' ? 'enabled' : 'disabled'}.`, 'success');
+        }
+    }
+
+    // ── SETTINGS ─────────────────────────────────────
+    function saveSettings(type) {
+        showToast(`${capitalize(type)} settings saved successfully!`, 'success');
+    }
+
+    function changePassword() {
+        const curr = document.getElementById('currentPass').value;
+        const nw = document.getElementById('newPass').value;
+        const cnf = document.getElementById('confirmPass').value;
+
+        if (!curr || !nw || !cnf) {
+            showToast('Please fill all password fields.', 'error');
+            return;
+        }
+        if (nw !== cnf) {
+            showToast('New passwords do not match.', 'error');
+            return;
+        }
+        if (nw.length < 6) {
+            showToast('Password must be at least 6 characters.', 'error');
+            return;
+        }
+
+        document.getElementById('currentPass').value = '';
+        document.getElementById('newPass').value = '';
+        document.getElementById('confirmPass').value = '';
+        showToast('Password changed successfully!', 'success');
+    }
+
+    // ── LOGOUT ────────────────────────────────────────
+    function adminLogout() {
+        if (confirm('Are you sure you want to logout?')) {
+            sessionStorage.removeItem('adminAuth');
+            sessionStorage.removeItem('adminUser');
+            window.location.href = 'admin-login.html';
+        }
+    }
+
+    // ── MODALS ───────────────────────────────────────
+    function closeModal(id) {
+        document.getElementById(id).classList.remove('show');
+    }
+
+    // Close modal on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === this) this.classList.remove('show');
+        });
+    });
+
+    // ── TOAST ─────────────────────────────────────────
+    function showToast(msg, type = 'success') {
+        const toast = document.getElementById('toast');
+        toast.textContent = msg;
+        toast.className = 'toast show ' + type;
+        setTimeout(() => toast.className = 'toast', 3000);
+    }
+
+    // ── SIDEBAR TOGGLE ───────────────────────────────
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    // ── HELPERS ──────────────────────────────────────
+    function formatDate(dateStr) {
+        const d = new Date(dateStr);
+        return d.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1).replace(/-/g, ' ');
+    }
+    </script>
+
+</body>
+</html>

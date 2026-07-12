@@ -1,0 +1,608 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #000;
+}
+
+nav {
+    background: rgba(0, 0, 0, 0.95);
+
+    width: 100%;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.left-section,
+.mid-section,
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+
+.mid-section ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+
+.right-section ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+
+
+button {
+    width: 110px;
+    height: 42px;
+
+    border-radius: 25px;
+    border: 1px solid cyan;
+
+    background-color: transparent;
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+
+.neon-btn:hover {
+    background-color: cyan;
+    color: black;
+
+    box-shadow:
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan;
+}
+
+
+.left-section {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+
+    background-color: cyan;
+    color: black;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+
+
+.left-section:hover .tooltip {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 992px){
+
+    nav{
+        padding: 15px 20px;
+    }
+
+    .logo{
+        height: 45px;
+    }
+
+    .mid-section ul{
+        gap: 10px;
+    }
+
+    button{
+        width: 95px;
+        height: 38px;
+        font-size: 13px;
+    }
+}
+
+
+
+@media (max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .mid-section ul,
+    .right-section ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mid-section ul{
+        gap: 8px;
+    }
+
+    .right-section ul{
+        gap: 10px;
+    }
+
+    button{
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .logo{
+        height: 40px;
+    }
+
+    .tooltip{
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 480px){
+
+    nav{
+        padding: 15px 10px;
+    }
+
+    .mid-section ul,
+    .right-section ul{
+        gap: 5px;
+    }
+
+    button{
+        width: 80px;
+        height: 32px;
+        font-size: 11px;
+    }
+
+    .logo{
+        height: 35px;
+    }
+}
+
+.muscle-hero {
+    width: 100%;
+    min-height: 100vh;
+
+    background-image:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.15)),
+        url("../Thumbnails/muscle_gain.png");
+
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    padding-left: 50px;
+}
+
+.hero-tag {
+    color: #ff6600;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero-content h1 {
+    font-size: 90px;
+    font-weight: 900;
+    color: white;
+    line-height: 90px;
+    margin: 20px 0;
+}
+
+.hero-content h1 span {
+    color: #ff6600;
+}
+
+.hero-content p {
+    color: #d9d9d9;
+    font-size: 20px;
+    line-height: 32px;
+    margin-bottom: 35px;
+}
+
+.join-btn {
+    width: 180px;
+    height: 55px;
+
+    border: none;
+    border-radius: 40px;
+
+    background: #ff6600;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: .4s;
+}
+
+.join-btn:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 10px #ff6600,
+        0 0 20px #ff6600,
+        0 0 40px #ff6600;
+}
+
+
+.exercise-section {
+    background: #000;
+    padding: 100px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title h2 {
+    color: white;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: #cfcfcf;
+    font-size: 18px;
+}
+
+.exercise-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.exercise-card {
+    background: #111;
+
+    border: 1px solid rgba(255, 102, 0, .2);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.exercise-card:hover {
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 0 15px rgba(255, 102, 0, .4);
+}
+
+.exercise-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.exercise-card h3 {
+    color: #ff6600;
+    font-size: 28px;
+    margin: 20px;
+}
+
+.exercise-card p {
+    color: #ddd;
+    margin: 0 20px 25px;
+    line-height: 28px;
+}
+
+
+.workout-plan {
+    background: #050505;
+    padding: 100px 8%;
+}
+
+.workout-plan h2 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    margin-bottom: 60px;
+}
+
+.plan-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.day-card {
+    background: #111;
+
+    border-radius: 20px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 102, 0, .25);
+
+    transition: .4s;
+}
+
+.day-card:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 15px rgba(255, 102, 0, .4),
+        0 0 35px rgba(255, 102, 0, .25);
+}
+
+.day-card h3 {
+    color: #ff6600;
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.day-card p {
+    color: white;
+    font-size: 18px;
+}
+
+.exercise {
+    cursor: pointer;
+    color: #ff6600;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+
+.exercise:hover {
+    letter-spacing: 1px;
+}
+
+.exercise-card a{
+    color: #ff6600;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.exercise-card a:hover{
+    letter-spacing: 1px;
+}
+
+/* ===========================
+   RETURN HOME
+=========================== */
+
+.return-home{
+    background:#050505;
+    padding:40px 0;
+    text-align:center;
+}
+
+.back-btn{
+    width:180px;
+    height:55px;
+
+    border:none;
+    border-radius:40px;
+
+    background:#ff6600;
+    color:#fff;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:.4s;
+}
+
+.back-btn:hover{
+
+    background:#fff;
+    color:#ff6600;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 10px #ff6600,
+    0 0 20px #ff6600,
+    0 0 40px #ff6600;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    background:#000;
+
+    padding:70px 8% 20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:40px;
+
+}
+
+.footer-box h2,
+.footer-box h3{
+
+    color:#ff6600;
+
+    margin-bottom:20px;
+
+}
+
+.footer-box p{
+
+    color:#d5d5d5;
+
+    line-height:30px;
+
+}
+
+.footer-box a{
+
+    display:block;
+
+    color:#d5d5d5;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer-box a:hover{
+
+    color:#ff6600;
+
+    transform:translateX(5px);
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.footer-bottom{
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:#9d9d9d;
+
+}
+
+
+@media(max-width:768px) {
+
+    .muscle-hero {
+        padding: 0 30px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .hero-content h1 {
+        font-size: 55px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    .section-title h2,
+    .workout-plan h2 {
+        font-size: 35px;
+    }
+}
+
+@media(max-width:480px) {
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .join-btn {
+        width: 150px;
+        height: 50px;
+    }
+
+    .section-title h2,
+    .workout-plan h2 {
+        font-size: 28px;
+    }
+
+    .exercise-card h3 {
+        font-size: 24px;
+    }
+}
+

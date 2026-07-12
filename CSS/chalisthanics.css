@@ -1,0 +1,558 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #000;
+}
+a{
+    text-decoration: none;
+}
+
+
+nav {
+    background: rgba(0, 0, 0, 0.95);
+
+    width: 100%;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.left-section,
+.mid-section,
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+
+.mid-section ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+
+.right-section ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+
+
+button {
+    width: 110px;
+    height: 42px;
+
+    border-radius: 25px;
+    border: 1px solid cyan;
+
+    background-color: transparent;
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+
+.neon-btn:hover {
+    background-color: cyan;
+    color: black;
+
+    box-shadow:
+        0 0 10px cyan,
+        0 0 20px cyan,
+        0 0 40px cyan;
+}
+
+
+.left-section {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+
+    background-color: cyan;
+    color: black;
+
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    font-size: 14px;
+
+    opacity: 0;
+    transition: 0.3s;
+}
+
+
+
+.left-section:hover .tooltip {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 992px){
+
+    nav{
+        padding: 15px 20px;
+    }
+
+    .logo{
+        height: 45px;
+    }
+
+    .mid-section ul{
+        gap: 10px;
+    }
+
+    button{
+        width: 95px;
+        height: 38px;
+        font-size: 13px;
+    }
+}
+
+
+
+@media (max-width: 768px){
+
+    nav{
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .mid-section ul,
+    .right-section ul{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .mid-section ul{
+        gap: 8px;
+    }
+
+    .right-section ul{
+        gap: 10px;
+    }
+
+    button{
+        width: 90px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .logo{
+        height: 40px;
+    }
+
+    .tooltip{
+        display: none;
+    }
+}
+
+
+
+@media (max-width: 480px){
+
+    nav{
+        padding: 15px 10px;
+    }
+
+    .mid-section ul,
+    .right-section ul{
+        gap: 5px;
+    }
+
+    button{
+        width: 80px;
+        height: 32px;
+        font-size: 11px;
+    }
+
+    .logo{
+        height: 35px;
+    }
+}
+
+.fatburn-hero{
+    width:100%;
+    min-height:100vh;
+
+    background-image:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.95),
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.2)
+    ),
+    url("/Thumbnails/calisthanics/chalisthanics bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    align-items:center;
+
+    padding-left:8%;
+}
+
+.hero-content{
+    max-width:600px;
+}
+
+.hero-tag{
+    color:#ff6600;
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:3px;
+}
+
+.hero-content h1{
+    color:white;
+    font-size:90px;
+    line-height:90px;
+    margin:20px 0;
+    font-weight:900;
+}
+
+.hero-content span{
+    color:#ff6600;
+}
+
+.hero-content p{
+    color:#ddd;
+    font-size:20px;
+    line-height:32px;
+    margin-bottom:35px;
+}
+
+.start-btn{
+    width:180px;
+    height:55px;
+
+    border:none;
+    border-radius:40px;
+
+    background:#ff6600;
+    color:white;
+
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.start-btn:hover{
+    transform:translateY(-5px);
+
+}
+
+
+
+.workout-section{
+    padding:100px 8%;
+    background:#050505;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    color:white;
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#ccc;
+}
+
+.workout-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.workout-card{
+    background: #111;
+
+    border: 1px solid rgba(255, 102, 0, .2);
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    transition: .4s;
+}
+
+.workout-card:hover{
+    transform: translateY(-10px);
+
+    box-shadow:
+        0 0 15px rgba(255, 102, 0, .4);
+}
+
+.workout-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.workout-card h3{
+    color: #ff6600;
+    font-size: 28px;
+    margin: 20px;
+}
+
+.workout-card p{
+    color: #ddd;
+    margin: 0 20px 25px;
+    line-height: 28px;
+}
+
+.exercise {
+    cursor: pointer;
+    color: #ff6600;
+
+    text-decoration: none;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.exercise:hover {
+    letter-spacing: 1px;
+}
+
+
+.plan-section{
+    padding:100px 8%;
+    background:#000;
+}
+
+.plan-section h2{
+    text-align:center;
+    color:white;
+    font-size:50px;
+    margin-bottom:60px;
+}
+
+.plan-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.plan-card{
+    background:#111;
+    padding:40px 20px;
+    text-align:center;
+    border-radius:20px;
+    border:1px solid rgba(255,102,0,.25);
+    transition:.4s;
+}
+
+.plan-card:hover{
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 15px rgba(255,102,0,.4),
+    0 0 35px rgba(255,102,0,.2);
+}
+
+.plan-card h3{
+    color:#ff6600;
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.plan-card p{
+    color:white;
+}
+
+
+/* ===========================
+   RETURN HOME
+=========================== */
+
+.return-home{
+    background:#050505;
+    padding:40px 0;
+    text-align:center;
+}
+
+.back-btn{
+    width:180px;
+    height:55px;
+
+    border:none;
+    border-radius:40px;
+
+    background:#ff6600;
+    color:#fff;
+
+    font-size:18px;
+    font-weight:bold;
+
+    cursor:pointer;
+    transition:.4s;
+}
+
+.back-btn:hover{
+
+    background:#fff;
+    color:#ff6600;
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 0 10px #ff6600,
+    0 0 20px #ff6600,
+    0 0 40px #ff6600;
+}
+
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    background:#000;
+
+    padding:70px 8% 20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:40px;
+
+}
+
+.footer-box h2,
+.footer-box h3{
+
+    color:#ff6600;
+
+    margin-bottom:20px;
+
+}
+
+.footer-box p{
+
+    color:#d5d5d5;
+
+    line-height:30px;
+
+}
+
+.footer-box a{
+
+    display:block;
+
+    color:#d5d5d5;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+
+    transition:.3s;
+
+}
+
+.footer-box a:hover{
+
+    color:#ff6600;
+
+    transform:translateX(5px);
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.footer-bottom{
+
+    margin-top:50px;
+
+    padding-top:20px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:#9d9d9d;
+
+}
+
+@media(max-width:768px){
+
+    .fatburn-hero{
+        justify-content:center;
+        text-align:center;
+        padding:20px;
+    }
+
+    .hero-content h1{
+        font-size:55px;
+        line-height:60px;
+    }
+
+    .section-title h2,
+    .plan-section h2{
+        font-size:35px;
+    }
+}
