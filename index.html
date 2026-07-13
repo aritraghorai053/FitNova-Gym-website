@@ -11,62 +11,45 @@
 
 <body>
 
-    <nav id="mainNav">
+    <nav>
 
         <div class="left-section">
             <a href="index.html">
                 <img class="logo" src="Thumbnails/logo.png" alt="logo">
             </a>
-            <div class="tooltip">FitNova</div>
+                <div class="tooltip">FitNova</div>
+            </div>
+
+        <div class="mid-section">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#trainers">Trainers</a></li>
+                <li><a href="#membership">Membership</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
 
-        <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="right-section">
+            <ul>
+                <li>
+                    <a href="login.html">
+                        <button class="neon-btn">Login</button>
+                    </a>
+                </li>
 
-        <div class="nav-menu" id="navMenu">
-
-            <div class="mid-section">
-                <ul>
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#programs" class="nav-link">Programs</a></li>
-                    <li><a href="#trainers" class="nav-link">Trainers</a></li>
-                    <li><a href="#membership" class="nav-link">Membership</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </div>
-
-            <div class="right-section">
-                <ul>
-                    <li>
-                        <a href="join-now.html">
-                            <button class="neon-btn">Join Now</button>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">
-                            <button class="neon-btn">Login</button>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="register.html">
-                            <button class="neon-btn">Register</button>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="admin-login.html" id="adminNavBtn">
-                            <button class="admin-btn" title="Admin Portal">&#9881; Admin</button>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
+                <li>
+                    <a href="register.html">
+                        <button class="neon-btn">Register</button>
+                    </a>
+                </li>
+                <li>
+                    <a href="admin-login.html">
+                        <button class="neon-btn">Admin</button>
+                    </a>
+                </li>
+            </ul>
         </div>
 
     </nav>
@@ -656,25 +639,7 @@
 
     </footer>
 
-    <script>
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const navMenu = document.getElementById('navMenu');
-
-        hamburgerBtn.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('nav-open');
-            hamburgerBtn.classList.toggle('active', isOpen);
-            hamburgerBtn.setAttribute('aria-expanded', isOpen);
-        });
-
-        // Close menu when a nav link is clicked (mobile)
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('nav-open');
-                hamburgerBtn.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-            });
-        });
-    </script>
+    
 
 </body>
 

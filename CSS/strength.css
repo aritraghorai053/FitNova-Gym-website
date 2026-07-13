@@ -205,15 +205,126 @@ button {
     ),
     url("../Thumbnails/Strength/Strength%20bg.jpg");
 
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-attachment:scroll;
 
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 
-    padding: 120px 8% 80px;
+    padding:120px 8% 80px;
+}
+
+
+/* =========================
+   Laptop
+========================= */
+
+@media (max-width:1200px){
+
+    .fatburn-hero{
+        padding:110px 6% 70px;
+        background-position:65% center;
+    }
+
+}
+
+
+/* =========================
+   Tablet
+========================= */
+
+@media (max-width:992px){
+
+    .fatburn-hero{
+        min-height:90vh;
+        padding:100px 5% 60px;
+        background-position:70% center;
+    }
+
+}
+
+
+/* =========================
+   Large Mobile
+========================= */
+
+@media (max-width:768px){
+
+    .fatburn-hero{
+
+        justify-content:center;
+        text-align:center;
+
+        min-height:85vh;
+
+        padding:90px 25px 50px;
+
+        background-position:75% center;
+        background-size:cover;
+    }
+
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width:576px){
+
+    .fatburn-hero{
+
+        min-height:80vh;
+
+        padding:80px 20px 40px;
+
+        background-position:78% center;
+    }
+
+}
+
+
+/* =========================
+   Small Mobile
+========================= */
+
+@media (max-width:430px){
+
+    .fatburn-hero{
+
+        min-height:75vh;
+
+        padding:75px 16px 35px;
+
+        background-position:82% center;
+    }
+
+}
+
+
+/* =========================
+   Extra Small
+========================= */
+
+@media (max-width:320px){
+
+    .fatburn-hero{
+
+        min-height:70vh;
+
+        padding:70px 12px 30px;
+
+        background-position:85% center;
+    }
+
+}
+/* Mobile */
+@media (max-width:768px){
+    .fatburn-hero{
+        background-position: right center;
+    }
 }
 
 .hero-content{

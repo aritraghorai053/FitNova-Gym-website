@@ -189,27 +189,104 @@ button {
     }
 }
 
-.muscle-hero {
-    width: 100%;
-    min-height: 100vh;
+.muscle-hero{
+    width:100%;
+    min-height:100vh;
 
     background-image:
-        linear-gradient(to right,
-            rgba(0, 0, 0, 0.9),
-            rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.15)),
+        linear-gradient(
+            to right,
+            rgba(0,0,0,.90),
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.15)
+        ),
         url("../Thumbnails/muscle_gain.png");
 
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:right center;
+    background-repeat:no-repeat;
 
-    display: flex;
-    align-items: center;
+    display:flex;
+    align-items:center;
 
-    position: relative;
+    position:relative;
+
+    padding:120px 8% 80px;
 }
 
+/* Laptop */
+@media (max-width:1200px){
+
+    .muscle-hero{
+        padding:110px 6% 70px;
+        background-position:75% center;
+    }
+
+}
+
+/* Tablet */
+@media (max-width:992px){
+
+    .muscle-hero{
+        min-height:90vh;
+        padding:100px 5% 60px;
+        background-position:80% center;
+    }
+
+}
+
+/* Mobile */
+@media (max-width:768px){
+
+    .muscle-hero{
+        min-height:85vh;
+
+        justify-content:center;
+        text-align:center;
+
+        padding:90px 25px 50px;
+
+        background-position:90% center;
+        background-size:cover;
+    }
+
+}
+
+/* Large Phone */
+@media (max-width:576px){
+
+    .muscle-hero{
+        min-height:80vh;
+        padding:80px 20px 40px;
+
+        background-position:95% center;
+    }
+
+}
+
+/* Small Phone */
+@media (max-width:430px){
+
+    .muscle-hero{
+        min-height:75vh;
+        padding:75px 16px 35px;
+
+        background-position:100% center;
+    }
+
+}
+
+/* Extra Small */
+@media (max-width:320px){
+
+    .muscle-hero{
+        min-height:70vh;
+        padding:70px 12px 30px;
+
+        background-position:right center;
+    }
+
+}
 .hero-content {
     position: relative;
     z-index: 2;
