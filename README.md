@@ -1,7 +1,7 @@
 # 🏋️ FitNova - Modern Gym & Fitness Website
 
-![FitNova Banner]<img width="1901" height="977" alt="Screenshot 2026-07-16 210955" src="https://github.com/user-attachments/assets/9bdea07d-6fa8-4712-80f6-05d9cf319595" />
-)
+<img width="1901" height="977" alt="Screenshot 2026-07-16 210955" src="https://github.com/user-attachments/assets/9bdea07d-6fa8-4712-80f6-05d9cf319595" />
+
 
 > **Transform Beyond Limits** 💪
 
