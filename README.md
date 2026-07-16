@@ -1,6 +1,6 @@
 # 🏋️ FitNova - Modern Gym & Fitness Website
 
-![FitNova Banner](Thumbnails/banner.png)
+Thumbnails/banner.png
 
 > **Transform Beyond Limits** 💪
 
@@ -10,7 +10,7 @@ FitNova is a modern, fully responsive gym and fitness website designed with a pr
 
 ## 🌐 Live Demo
 
-> Coming Soon
+🔗 https://aritraghorai053.github.io/FitNova-Gym-website/
 
 ---
 
@@ -142,26 +142,6 @@ FitNova/
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Home Page
-
-<img width="1901" height="977" alt="image" src="https://github.com/user-attachments/assets/93aae275-7047-4bc5-82ea-eb7427f71209" />
-
-
-### 💪 Workout Programs
-
-> Add a screenshot here
-
-### 🔐 Login Page
-
-> Add a screenshot here
-
-### 🛡️ Admin Dashboard
-
-> Coming Soon
-
----
 
 ## 📈 Future Improvements
 
@@ -179,7 +159,7 @@ FitNova/
 
 **Aritra Ghorai**
 
-- GitHub: https://github.com/aritraghorai053
+- GitHub: https://github.com/aritraghoraio53
 - LinkedIn: https://linkedin.com/in/aritra-ghorai-443966386/
 
 ---
@@ -187,10 +167,6 @@ FitNova/
 ## ⭐ Support
 
 If you like this project, consider giving it a ⭐ on GitHub!
-
----
-
-This project is licensed under the MIT License.
 
 ---
 
