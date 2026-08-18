@@ -293,24 +293,34 @@ html{
     cursor: pointer;
 }
 
-@media(max-width: 768px){
+@media (max-width: 768px){
+
     .menu-toggle{
-        display: block;
+        display: none;
     }
+
     nav{
         flex-wrap: wrap;
     }
+
     .mid-section{
         display: none;
         width: 100%;
     }
+
     .mid-section.active{
         display: flex;
-    }
-    .mid-section.ul{
-        flex-duration: column;
         width: 100%;
     }
+
+    .mid-section ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 15px;
+    }
+
     .right-section{
         display: none;
     }
