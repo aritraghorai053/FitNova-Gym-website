@@ -282,6 +282,40 @@ html{
     }
 }
 
+.menu-toggle{
+    display: none;
+    background: transparent;
+    border: 1px solid cyan;
+    color: cyan;
+    font-size: 25px;
+    width: 45px;
+    height: 40px;
+    cursor: pointer;
+}
+
+@media(max-width: 768px){
+    .menu-toggle{
+        display: block;
+    }
+    nav{
+        flex-wrap: wrap;
+    }
+    .mid-section{
+        display: none;
+        width: 100%;
+    }
+    .mid-section.active{
+        display: flex;
+    }
+    .mid-section.ul{
+        flex-duration: column;
+        width: 100%;
+    }
+    .right-section{
+        display: none;
+    }
+}
+
 .home-section{
     width: 100%;
     min-height: 100vh;
