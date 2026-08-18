@@ -296,7 +296,7 @@ html{
 @media (max-width: 768px){
 
     .menu-toggle{
-        display: none;
+        display: block;
     }
 
     nav{
