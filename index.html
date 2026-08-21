@@ -17,10 +17,16 @@
             <a href="index.html">
                 <img class="logo" src="Thumbnails/logo.png" alt="logo">
             </a>
-                <div class="tooltip">FitNova</div>
-            </div>
+            <div class="tooltip">FitNova</div>
+        </div>
 
-        <div class="mid-section">
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+
+        <div class="mid-section" id="navMenu">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -29,6 +35,12 @@
                 <li><a href="#membership">Membership</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <div class="mobile-auth-buttons">
+                <a href="login.html"><button class="neon-btn">Login</button></a>
+                <a href="register.html"><button class="neon-btn">Register</button></a>
+                <a href="admin-login.html"><button class="neon-btn admin-btn">Admin</button></a>
+            </div>
         </div>
 
         <div class="right-section">
@@ -46,7 +58,7 @@
                 </li>
                 <li>
                     <a href="admin-login.html">
-                        <button class="neon-btn">Admin</button>
+                        <button class="neon-btn admin-btn">Admin</button>
                     </a>
                 </li>
             </ul>
@@ -639,7 +651,7 @@
 
     </footer>
 
-    
+<script src="js/script.js"></script>    
 
 </body>
 

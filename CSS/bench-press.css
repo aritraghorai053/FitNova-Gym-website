@@ -13,7 +13,7 @@ body {
 }
 
 nav {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(10, 15, 26, 0.55);
 
     width: 100%;
     padding: 20px 40px;
@@ -26,9 +26,10 @@ nav {
     top: 0;
     z-index: 1000;
 
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 .left-section,
@@ -218,26 +219,6 @@ button {
     gap: 35px;
 }
 
-@media (max-width: 768px){
-
-    .video-card video{
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
-    }
-
-}
-
-@media (max-width: 480px){
-
-    .video-card video{
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16/9;
-    }
-
-}
-
 .video-card{
     background: #111;
     border-radius: 20px;
@@ -374,6 +355,11 @@ button {
     line-height: 28px;
 }
 
+.tips-section{
+    padding: 80px 8%;
+    background: #050505;
+}
+
 .return-home{
     background:#050505;
     padding:40px 0;
@@ -506,7 +492,8 @@ footer{
 
 @media(max-width:768px){
 
-    .video-section{
+    .video-section,
+    .tips-section{
         padding: 80px 5%;
     }
 

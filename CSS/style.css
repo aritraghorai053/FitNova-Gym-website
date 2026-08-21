@@ -5,29 +5,47 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
 body{
     background-color: black;
+    color: white;
+
 }
 
 nav{
-    background: rgba(0,0,0,0.95);
-
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 20px 40px;
+    height: 75px;
+    padding: 0 45px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 
-    position: sticky;
-    top: 0;
     z-index: 1000;
 
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+    background: rgba(10, 15, 26, 0.45);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.35s ease;
 }
 
+nav.scrolled{
+    background: rgba(6, 10, 20, 0.75);
+    backdrop-filter: blur(20px) saturate(200%);
+    -webkit-backdrop-filter: blur(20px) saturate(200%);
+    height: 68px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.25);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 255, 255, 0.08);
+}
 
 .left-section,
 .mid-section,
@@ -36,249 +54,444 @@ nav{
     align-items: center;
 }
 
-
-.logo{
-    height: 50px;
-    cursor: pointer;
-}
-
-
-.mid-section ul{
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-
-.right-section ul{
-    display: flex;
-    gap: 12px;
-    list-style: none;
-}
-
-
-nav ul li a{
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 8px 12px;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-nav ul li a:hover{
-    color: cyan;
-    text-shadow: 0 0 10px cyan;
-}
-
-button{
-    width: 110px;
-    height: 42px;
-
-    border-radius: 25px;
-    border: 1px solid cyan;
-
-    background-color: transparent;
-    color: white;
-
-    cursor: pointer;
-
-    transition: 0.4s;
-
-    font-size: 15px;
-    font-weight: bold;
-    text-transform: capitalize;
-}
-
-
-.neon-btn:hover{
-    background-color: cyan;
-    color: black;
-
-    box-shadow:
-        0 0 10px cyan,
-        0 0 20px cyan,
-        0 0 40px cyan;
-}
-
-
 .left-section{
     position: relative;
 }
 
+.logo{
+    height: 46px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.logo:hover{
+    transform: scale(1.05);
+}
+
 .tooltip{
     position: absolute;
-    bottom: -30px;
-    left: 0;
-
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: cyan;
     color: black;
-
-    padding: 5px 10px;
-    border-radius: 5px;
-
-    font-size: 14px;
-
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
     opacity: 0;
-    transition: 0.3s;
+    visibility: hidden;
+    transition: 0.25s ease;
+    pointer-events: none;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 255, 255, 0.4);
 }
 
 .left-section:hover .tooltip{
     opacity: 1;
+    visibility: visible;
+}
+
+/* ─── Desktop Mid Section ─────────────────────────────────────────── */
+.mid-section ul{
+    display: flex;
+    gap: 22px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 8px 6px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+    display: inline-block;
+}
+
+nav ul li a::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: cyan;
+    box-shadow: 0 0 8px cyan;
+    border-radius: 2px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active{
+    color: cyan;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after{
+    width: 100%;
+    left: 0;
+}
+
+/* Hide mobile-only buttons on desktop */
+.mobile-auth-buttons{
+    display: none;
+}
+
+/* ─── Desktop Right Section ────────────────────────────────────────── */
+.right-section ul{
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.right-section a,
+.mobile-auth-buttons a{
+    text-decoration: none;
+}
+
+button{
+    min-width: 95px;
+    height: 38px;
+    padding: 0 18px;
+    border-radius: 25px;
+    border: 1.5px solid cyan;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neon-btn:hover{
+    background-color: cyan;
+    color: black;
+    box-shadow: 0 0 12px cyan, 0 0 24px rgba(0, 255, 255, 0.4);
+    transform: translateY(-1px);
 }
 
 .admin-btn{
-    width: 110px;
-    height: 40px;
-
-    border-radius: 25px;
     border: none;
-
-    background: linear-gradient(135deg, #ff6600, #ff8c00);
+    background: linear-gradient(135deg, #ff5500, #ff8800);
     color: white;
-
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: bold;
-
-    transition: 0.4s;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-
-    letter-spacing: 0.5px;
-
-    box-shadow: 0 0 8px rgba(255,102,0,0.35);
+    box-shadow: 0 0 10px rgba(255, 85, 0, 0.35);
 }
 
 .admin-btn:hover{
-    background: linear-gradient(135deg, #ff8c00, #ffaa00);
+    background: linear-gradient(135deg, #ff7700, #ffaa00);
     color: white;
-    transform: scale(1.06);
-    box-shadow:
-        0 0 12px rgba(255,102,0,0.6),
-        0 0 25px rgba(255,102,0,0.4);
+    box-shadow: 0 0 16px rgba(255, 85, 0, 0.7), 0 0 28px rgba(255, 85, 0, 0.4);
+    transform: translateY(-1px);
 }
 
-main{
-    padding-top: 20px;
-}
-
-.pages{
-    height: 100vh;
-    display: flex;
+/* ─── Hamburger Toggle Button ─────────────────────────────────────── */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-}
-html{
-    scroll-behavior: smooth;
+    gap: 5.5px;
+    background: rgba(0, 255, 255, 0.06);
+    border: 1.5px solid rgba(0, 255, 255, 0.3);
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
+    border-radius: 8px;
+    padding: 0;
+    margin: 0;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+    z-index: 1100;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
+.menu-toggle:hover{
+    background: rgba(0, 255, 255, 0.14);
+    border-color: cyan;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
 
+.menu-toggle:active{
+    transform: scale(0.94);
+}
+
+.menu-toggle .bar{
+    display: block;
+    width: 22px;
+    height: 2.2px;
+    background: cyan;
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease, width 0.3s ease, background-color 0.3s ease;
+    transform-origin: center;
+}
+
+/* Morph to Close (X) icon */
+.menu-toggle.open{
+    background: rgba(255, 102, 0, 0.12);
+    border-color: #ff6600;
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+}
+
+.menu-toggle.open .bar{
+    background: #ff6600;
+}
+
+.menu-toggle.open .bar:nth-child(1){
+    transform: translateY(7.7px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2){
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-toggle.open .bar:nth-child(3){
+    transform: translateY(-7.7px) rotate(-45deg);
+}
+
+/* ─── Responsive Media Queries ────────────────────────────────────── */
 
 @media (max-width: 992px){
-
     nav{
-        padding: 15px 20px;
+        padding: 0 25px;
     }
 
     .mid-section ul{
-        gap: 8px;
+        gap: 14px;
     }
 
     nav ul li a{
-        font-size: 16px;
-        padding: 6px 8px;
-    }
-
-    button{
-        width: 95px;
-        height: 38px;
         font-size: 13px;
-    }
-
-    .logo{
-        height: 45px;
-    }
-}
-
-
-@media (max-width: 768px){
-
-    nav{
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .mid-section ul{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .right-section ul{
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav ul li a{
-        font-size: 15px;
+        padding: 6px 4px;
     }
 
     button{
-        width: 90px;
-        height: 36px;
+        min-width: 80px;
+        height: 35px;
+        padding: 0 12px;
         font-size: 12px;
     }
 
     .logo{
-        height: 40px;
+        height: 42px;
+    }
+}
+
+/* Mobile & Tablet Breakpoint (860px) */
+@media (max-width: 860px){
+
+    nav{
+        padding: 0 18px;
+        height: 66px;
+    }
+
+    .right-section{
+        display: none;
+    }
+
+    .menu-toggle{
+        display: flex;
+    }
+
+    /* Mobile Drawer */
+    .mid-section{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(320px, 85vw);
+        height: 100vh;
+        background: rgba(10, 14, 25, 0.88);
+        backdrop-filter: blur(25px) saturate(180%);
+        -webkit-backdrop-filter: blur(25px) saturate(180%);
+        border-left: 1px solid rgba(0, 255, 255, 0.2);
+        box-shadow: -10px 0 35px rgba(0, 0, 0, 0.9), inset 1px 0 0 rgba(255, 255, 255, 0.08);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        padding: 85px 22px 30px;
+        gap: 22px;
+
+        transform: translateX(100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+        z-index: 1050;
+        overflow-y: auto;
+    }
+
+    .mid-section.active{
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .mid-section ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+
+    .mid-section ul li{
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .mid-section ul li:first-child{
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .mid-section ul li a{
+        display: block;
+        padding: 14px 14px;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: #e2e8f0;
+        border-radius: 6px;
+        transition: all 0.25s ease;
+    }
+
+    .mid-section ul li a::after{
+        display: none;
+    }
+
+    .mid-section ul li a:hover,
+    .mid-section ul li a.active{
+        color: cyan;
+        background: rgba(0, 255, 255, 0.08);
+        padding-left: 20px;
+        text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Mobile Action Buttons inside drawer */
+    .mobile-auth-buttons{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 5px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(0, 255, 255, 0.15);
+    }
+
+    .mobile-auth-buttons a{
+        width: 100%;
+        display: block;
+    }
+
+    .mobile-auth-buttons button{
+        width: 100%;
+        height: 42px;
+        font-size: 13px;
+        border-radius: 10px;
+    }
+}
+
+/* Small Screen Phones (<= 480px) */
+@media (max-width: 480px){
+    nav{
+        padding: 0 14px;
+        height: 60px;
+    }
+
+    .logo{
+        height: 36px;
     }
 
     .tooltip{
         display: none;
     }
+
+    .menu-toggle{
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        min-height: 38px;
+        gap: 4.5px;
+        border-radius: 7px;
+    }
+
+    .menu-toggle .bar{
+        width: 19px;
+        height: 2px;
+    }
+
+    .menu-toggle.open .bar:nth-child(1){
+        transform: translateY(6.5px) rotate(45deg);
+    }
+
+    .menu-toggle.open .bar:nth-child(3){
+        transform: translateY(-6.5px) rotate(-45deg);
+    }
+
+    .mid-section{
+        padding: 75px 18px 25px;
+        width: min(290px, 88vw);
+    }
+
+    .mid-section ul li a{
+        padding: 12px 10px;
+        font-size: 14px;
+    }
 }
 
-
-@media (max-width: 480px){
-
+/* Extra Small Devices (<= 360px) */
+@media (max-width: 360px){
     nav{
-        padding: 15px 10px;
-    }
-
-    .mid-section ul{
-        gap: 5px;
-    }
-
-    nav ul li a{
-        font-size: 14px;
-        padding: 5px;
-    }
-
-    .right-section ul{
-        gap: 8px;
-    }
-
-    button{
-        width: 85px;
-        height: 34px;
-        font-size: 11px;
+        padding: 0 10px;
+        height: 56px;
     }
 
     .logo{
-        height: 35px;
+        height: 32px;
+    }
+
+    .menu-toggle{
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        gap: 4px;
+    }
+
+    .menu-toggle .bar{
+        width: 17px;
+        height: 2px;
+    }
+
+    .menu-toggle.open .bar:nth-child(1){
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.open .bar:nth-child(3){
+        transform: translateY(-6px) rotate(-45deg);
     }
 }
 
 .home-section{
     width: 100%;
     min-height: 100vh;
+    top: 76px;
 
     background-image: url("../Thumbnails/Home_bg.png");
     background-size: cover;
@@ -289,7 +502,6 @@ html{
     align-items: center;
 
     padding: 0 80px;
-
     position: relative;
 }
 
@@ -371,6 +583,7 @@ html{
 
     .home-section{
         padding: 0 50px;
+        top: 0;
 
         background-position: center right;
     }
@@ -393,6 +606,7 @@ html{
         text-align: center;
 
         padding: 0 25px;
+        top: 0;
 
         background-position: 70% center;
     }
@@ -459,6 +673,7 @@ html{
     position: relative;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
     padding: 0 80px;
@@ -574,10 +789,6 @@ html{
         }
     }   
 
-.about-section{
-    display: flex;
-    justify-content: space-between;
-}
 
 .about-side-content{
     position: relative;
